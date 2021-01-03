@@ -15,25 +15,39 @@
       }
     }
   }
+  $vert: #00d68f;
+  $bleu-fonce: hsla(211,100%,37%,.75);
+  $orange: hsla(17,99%,54%,.75);
+  $bleu-clair: hsla(212,73%,59%,.75);
+  $blanc: #fff;
   
   ::ng-deep button.status-primary {
-    background-color:hsla(17,99%,54%,.75) !important;
-    border-color: hsla(17,99%,54%,.75) !important;
+    background-color: $vert !important;
+    border-color: $vert !important;
   }
-  ::ngdeep nb-menu .menu-item a.active .menu-icon,
-  ::ngdeep nb-menu .menu-item a.active {
-    color: hsla(211,100%,37%,.75) !important;
+  ::ng-deep .nb-theme-corporate nb-menu .menu-item > .menu-items > .menu-item a.active {
+    color: $bleu-fonce !important;
+  }
+
+  ::ng-deep nb-menu .menu-item a.active {
+    color: $bleu-fonce;
+    .menu-icon {
+      color: $bleu-fonce;
+    }
+    &::before {
+      background: $bleu-fonce !important;
+    }
   }
 
   ::ng-deep nb-card-header {
-    // background-color: hsla(211,100%,37%,.75) !important;
-    border-bottom: 1px solid  hsla(211,100%,37%,.75);;
-    color: hsla(211,100%,37%,.75);
+    background-color: $orange !important;
+    border-bottom: 1px solid  $orange !important;
+    color: $blanc;
      .h5 {
-      color: hsla(211,100%,37%,.75);
+      color: $blanc;
     }
     h5 {
-      color: hsla(211,100%,37%,.75);
+      color: $blanc;
     }
   }
 }

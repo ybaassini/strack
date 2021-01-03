@@ -21,10 +21,23 @@ export class ConstatService {
     }
 
     /**
-     * getProjets
+     * create Constat
      */
-    public createConstat(poste: any) {
-        return this.httpClient.post(`${this.url}`, poste);
+    public createConstat(posteId: string, constat: any) {
+        return this.httpClient.post(`${this.url}`, {
+            constat,
+            posteId
+        });
+    }
+
+    /**
+     * create Constat
+     */
+    public updateConstat(posteId: string, constat: any) {
+        return this.httpClient.put(`${this.url}`, {
+            constat,
+            posteId
+        });
     }
 
 }

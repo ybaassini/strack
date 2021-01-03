@@ -121,7 +121,7 @@ export class BaliseComponent {
       actions: {
         delete: false,
         add: false,
-        edit: false
+        edit: true
       },
       columns: {
         balise: {
@@ -153,7 +153,6 @@ export class BaliseComponent {
       },
     },
     controle: {
-      hideSubHeader: true,
       add: {
         addButtonContent: '<i class="nb-plus"></i>',
         createButtonContent: '<i class="nb-checkmark"></i>',

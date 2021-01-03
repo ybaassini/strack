@@ -8,5 +8,13 @@
 
 .title {
   color: #fff;
-  background-color: #36f;
+  background-color: rgba(254, 87, 22, 0.75) !important;
+}
+
+::ng-deep nb-tabset .tab.active .tab-link {
+  color: rgba(0, 91, 189, 0.75) !important;
+}
+
+::ng-deep nb-tabset .tab.active .tab-link::before {
+  background-color: rgba(0, 91, 189, 0.75) !important;
 }
