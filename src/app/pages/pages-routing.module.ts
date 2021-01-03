@@ -10,12 +10,12 @@ const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
+    // {
+    //   path: 'dashboard',
+    //   component: ECommerceComponent,
+    // },
     {
       path: 'dashboard',
-      component: ECommerceComponent,
-    },
-    {
-      path: 'iot-dashboard',
       component: DashboardComponent,
     },
     {
@@ -54,11 +54,6 @@ const routes: Routes = [{
         .then(m => m.ChartsModule),
     },
     {
-      path: 'editors',
-      loadChildren: () => import('./editors/editors.module')
-        .then(m => m.EditorsModule),
-    },
-    {
       path: 'tables',
       loadChildren: () => import('./tables/tables.module')
         .then(m => m.TablesModule),
@@ -67,6 +62,21 @@ const routes: Routes = [{
       path: 'miscellaneous',
       loadChildren: () => import('./miscellaneous/miscellaneous.module')
         .then(m => m.MiscellaneousModule),
+    },
+    {
+      path: 'poste',
+      loadChildren: () => import('./poste/poste.module')
+        .then(m => m.PosteModule),
+    },
+    {
+      path: 'consignes',
+      loadChildren: () => import('./consigne/consigne.module')
+        .then(m => m.ConsigneModule),
+    },
+    {
+      path: 'releves',
+      loadChildren: () => import('./releves/releves.module')
+        .then(m => m.RelevesModule),
     },
     {
       path: '',

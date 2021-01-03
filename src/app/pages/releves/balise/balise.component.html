@@ -1,0 +1,14 @@
+<nb-card>
+  <nb-card-header>
+    Relevés du Poste précédent
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="h6 p-3 m-0 text-center title">SURVEILLANCE GLOBALE</div>
+    <ng2-smart-table [settings]="previous.globale" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+    <div class="h6 p-3 m-0 text-center title">CONTRÔLE DES BALISES DE CHANTIER</div>
+    <ng2-smart-table [settings]="previous.controle" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

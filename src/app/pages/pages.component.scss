@@ -15,4 +15,25 @@
       }
     }
   }
+  
+  ::ng-deep button.status-primary {
+    background-color:hsla(17,99%,54%,.75) !important;
+    border-color: hsla(17,99%,54%,.75) !important;
+  }
+  ::ngdeep nb-menu .menu-item a.active .menu-icon,
+  ::ngdeep nb-menu .menu-item a.active {
+    color: hsla(211,100%,37%,.75) !important;
+  }
+
+  ::ng-deep nb-card-header {
+    // background-color: hsla(211,100%,37%,.75) !important;
+    border-bottom: 1px solid  hsla(211,100%,37%,.75);;
+    color: hsla(211,100%,37%,.75);
+     .h5 {
+      color: hsla(211,100%,37%,.75);
+    }
+    h5 {
+      color: hsla(211,100%,37%,.75);
+    }
+  }
 }

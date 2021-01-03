@@ -1,0 +1,15 @@
+nb-accordion {
+  nb-accordion-item-body {
+    .item-body {
+      padding: 0;
+    }
+  }
+  nb-list-item {
+    padding-left: 0;
+    padding-right: 0;
+    border-top: 1px solid #edf1f7;
+    &:first-child {
+      border-top: 0;
+    }
+  }
+}

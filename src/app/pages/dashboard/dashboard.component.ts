@@ -35,7 +35,7 @@ export class DashboardComponent implements OnDestroy {
     type: 'info',
   };
   coffeeMakerCard: CardSettings = {
-    title: 'Coffee Maker',
+    title: 'Constat en cours',
     iconClass: 'nb-coffee-maker',
     type: 'warning',
   };
@@ -43,9 +43,6 @@ export class DashboardComponent implements OnDestroy {
   statusCards: string;
 
   commonStatusCardsSet: CardSettings[] = [
-    this.lightCard,
-    this.rollerShadesCard,
-    this.wirelessAudioCard,
     this.coffeeMakerCard,
   ];
 
@@ -57,24 +54,7 @@ export class DashboardComponent implements OnDestroy {
   } = {
     default: this.commonStatusCardsSet,
     cosmic: this.commonStatusCardsSet,
-    corporate: [
-      {
-        ...this.lightCard,
-        type: 'warning',
-      },
-      {
-        ...this.rollerShadesCard,
-        type: 'primary',
-      },
-      {
-        ...this.wirelessAudioCard,
-        type: 'danger',
-      },
-      {
-        ...this.coffeeMakerCard,
-        type: 'info',
-      },
-    ],
+    corporate: this.commonStatusCardsSet,
     dark: this.commonStatusCardsSet,
   };
 

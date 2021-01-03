@@ -1,0 +1,11 @@
+<nb-card>
+  <nb-card-header>
+    Relevés du Poste précédent
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="h6 p-3 m-0 text-center title">RELEVÉ JOURNALIER DES CHAINES KRT</div>
+    <ng2-smart-table [settings]="previous.globale" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

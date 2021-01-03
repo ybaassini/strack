@@ -1,0 +1,156 @@
+<nb-card>
+  <nb-card-header>Constat</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputFirstName" class="label">Date</label>
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="inputFirstName"
+            placeholder="First Name"
+          />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputLastName" class="label">Heure</label>
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="inputLastName"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputEmail" class="label">Type</label>
+          <nb-radio-group>
+            <nb-radio>Log</nb-radio>
+            <nb-radio>Risque</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputWebsite" class="label">Tendance</label>
+          <nb-radio-group>
+            <nb-radio>Positif</nb-radio>
+            <nb-radio>Négatif</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputEmail" class="label">Nom d'entreprise</label>
+          <input
+            type="email"
+            nbInput
+            fullWidth
+            id="inputEmail"
+            placeholder="Entreprise"
+          />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputWebsite" class="label">Contact</label>
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="inputWebsite"
+            placeholder="Contact"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputEmail" class="label">Local</label>
+          <input
+            type="email"
+            nbInput
+            fullWidth
+            id="inputEmail"
+            placeholder="Local"
+          />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputWebsite" class="label">Chantier</label>
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="inputWebsite"
+            placeholder="Chantier"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputEmail" class="label">Chantier à enjeu</label>
+          <nb-select selected="1">
+            <nb-option value="1">Chantier 1</nb-option>
+            <nb-option value="2">Chantier 2</nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputWebsite" class="label">Description</label>
+          <textarea
+            rows="5"
+            nbInput
+            fullWidth
+            placeholder="Text Area"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputEmail" class="label">Actions du RZ</label>
+          <input
+            type="email"
+            nbInput
+            fullWidth
+            id="inputEmail"
+            placeholder="Actions"
+          />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputWebsite" class="label">Constat</label>
+          <nb-radio-group>
+            <nb-radio>Soldé</nb-radio>
+            <nb-radio>A suivre</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <button type="submit" status="primary" nbButton>Créer</button>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" status="success" nbButton>Solder</button>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

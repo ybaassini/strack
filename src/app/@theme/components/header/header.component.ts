@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
-  currentTheme = 'default';
+  currentTheme = 'cosmic';
 
   userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
 
@@ -49,7 +49,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.currentTheme = this.themeService.currentTheme;
+    this.currentTheme = 'corporate';
+    this.themeService.changeTheme('corporate');
 
     this.userService.getUsers()
       .pipe(takeUntil(this.destroy$))
