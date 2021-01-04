@@ -5,13 +5,13 @@
     </ngx-status-card>
   </div>
   <div class="col-md-6">
-    <ngx-status-card [title]="'Consignes RZ'" [type]="'warning'">
+    <ngx-status-card [title]="'Consignes RZ'" [type]="'primary'">
       1
     </ngx-status-card>
   </div>
   <div class="col-md-6">
-    <ngx-status-card [title]="'Constat en cours'" [type]="'danger'">
-      4
+    <ngx-status-card [title]="'Constat en cours'" [type]="'primary'">
+      {{constatsInProgress.length}}
     </ngx-status-card>
   </div>
   <div class="col-md-12">
@@ -19,54 +19,15 @@
       <nb-card-header><h5>Faits Marquant</h5></nb-card-header>
       <nb-card-body class="p-0">
         <nb-list>
-          <nb-list-item>
+          <nb-list-item *ngFor="let constat of constats">
             <div class="col-md-3">
-              Vendredi 12 décembre à 12h45      
+              {{constat.date | date:'mediumDate'}}     
             </div>
             <div class="col-md-7">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+              {{constat.description}}     
             </div>
             <div class="col-md-2">
-              <button nbButton status="primary" >
-                 Détails
-              </button>
-            </div>
-          </nb-list-item>
-          <nb-list-item>
-            <div class="col-md-3">
-              Vendredi 12 décembre à 12h45      
-            </div>
-            <div class="col-md-7">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-            </div>
-            <div class="col-md-2">
-              <button nbButton status="primary" >
-                 Détails
-              </button>
-            </div>
-          </nb-list-item>
-          <nb-list-item>
-            <div class="col-md-3">
-              Vendredi 12 décembre à 12h45      
-            </div>
-            <div class="col-md-7">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-            </div>
-            <div class="col-md-2">
-              <button nbButton status="primary" >
-                 Détails
-              </button>
-            </div>
-          </nb-list-item>
-          <nb-list-item>
-            <div class="col-md-3">
-              Vendredi 12 décembre à 12h45      
-            </div>
-            <div class="col-md-7">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-            </div>
-            <div class="col-md-2">
-              <button nbButton status="primary" >
+              <button nbButton status="primary" [routerLink]="['/poste/constat', constat.id]" >
                  Détails
               </button>
             </div>

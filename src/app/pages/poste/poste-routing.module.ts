@@ -14,7 +14,11 @@ const routes: Routes = [
     }
   },
   {
-    path: "constat",
+    path: "poste/constat",
+    component: ConstatComponent,
+  },
+  {
+    path: "poste/constat/:constatId",
     component: ConstatComponent,
   },
 ];

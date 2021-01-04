@@ -7,9 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   public user: BehaviorSubject<any> = new BehaviorSubject({});
   constructor(private httpClient: HttpClient) {
-    if (localStorage.getItem('user')) {
-      this.user.next(JSON.parse(localStorage.getItem('user')));
-    }
   }
 
   public register(user) {

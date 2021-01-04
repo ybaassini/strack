@@ -3,8 +3,9 @@ import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeServ
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
+import { filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-header',
@@ -43,12 +44,31 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
+              private router: Router,
               private userService: UserData,
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService) {
   }
 
   ngOnInit() {
+    this.menuService.onItemClick()
+      .pipe(
+        filter(({ tag }) => tag === 'my-context-menu'),
+        map(({ item: { title } }) => title),
+      )
+      .subscribe(title => {
+        if (title === 'Log out') {
+          const postes = JSON.parse(localStorage.getItem('postes')) || [];
+          const poste = JSON.parse(localStorage.getItem('poste'));
+          const posteToSave = {...poste, status: 'finished'};
+          const index = postes.findIndex(poste => poste.id == posteToSave.id);
+          localStorage.setItem('poste', JSON.stringify(posteToSave));
+          postes[index]=posteToSave;
+          localStorage.setItem('postes', JSON.stringify(postes));
+          this.router.navigate(['/auth/login']);
+        }
+      });
+
     this.currentTheme = 'corporate';
     this.themeService.changeTheme('corporate');
 

@@ -1,19 +1,19 @@
 <nb-card>
   <nb-tabset>
+    <nb-tab tabTitle="Relevés du Poste en Cours">
+      <div class="h6 p-3 m-0 text-center title">SURVEILLANCE GLOBALE</div>
+      <ng2-smart-table [settings]="current.globale" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+      <div class="h6 p-3 m-0 text-center title">CONTRÔLE DES BALISES DE CHANTIER</div>
+      <ng2-smart-table [settings]="current.controle" [source]="" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-tab>
     <nb-tab tabTitle="Relevés du Poste précédent">
       <div class="h6 p-3 m-0 text-center title">SURVEILLANCE GLOBALE</div>
       <ng2-smart-table [settings]="previous.globale" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
       </ng2-smart-table>
       <div class="h6 p-3 m-0 text-center title">CONTRÔLE DES BALISES DE CHANTIER</div>
       <ng2-smart-table [settings]="previous.controle" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-      </ng2-smart-table>
-    </nb-tab>
-    <nb-tab tabTitle="Relevés du Poste en Cours">
-      <div class="h6 p-3 m-0 text-center title">SURVEILLANCE GLOBALE</div>
-      <ng2-smart-table [settings]="current.globale" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-      </ng2-smart-table>
-      <div class="h6 p-3 m-0 text-center title">CONTRÔLE DES BALISES DE CHANTIER</div>
-      <ng2-smart-table [settings]="current.controle" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
       </ng2-smart-table>
     </nb-tab>
   </nb-tabset>

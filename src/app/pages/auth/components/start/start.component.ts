@@ -37,10 +37,11 @@ export class StartComponent extends NbLoginComponent {
   }
 
   start() {
-    this.posteService.createPoste(this.poste).subscribe(() => {
-      localStorage.setItem('poste', JSON.stringify(this.poste));
-      this.router.navigate(['pages/dashboard']);
-    });
-
+    // this.posteService.createPoste(this.poste).subscribe((res: any) => {
+    //   this.posteService.updatePosteInProgress(res.data.data);
+    //   this.router.navigate(['pages/dashboard']);
+    // });
+    this.posteService.createPoste(this.poste);
+    this.router.navigate(['pages/dashboard']);
   }
 }

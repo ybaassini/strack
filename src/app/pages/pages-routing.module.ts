@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { PostesResolver } from 'app/@core/resolver';
 
 const routes: Routes = [{
   path: '',
@@ -17,6 +18,9 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+      resolve: {
+        postes: PostesResolver
+      }
     },
     {
       path: 'layout',

@@ -25,15 +25,23 @@ export class LoginComponent extends NbLoginComponent {
   public ngOnInit() {}
 
   public login() {
-    this.authService.login(this.user).subscribe(
-        (res: any) => {
-          this.authService.setLocalStorage(res);
-          this.authService.saveUser(res.data.user);
-          this.router.navigate(['/auth/start']);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+    // this.authService.login(this.user).subscribe(
+    //     (res: any) => {
+    //       this.authService.setLocalStorage(res);
+    //       this.authService.saveUser(res.data.user);
+    //       this.router.navigate(['/auth/start']);
+    //     },
+    //     (err) => {
+    //       console.log(err);
+    //     }
+
+    //   );
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const indexUser: any = users.findIndex(user => user.email == this.user.email && user.password == this.user.password);
+      if (typeof indexUser !== "undefined" || indexUser <  0) {
+        // this.authService.setLocalStorage(res);
+        this.authService.saveUser(users[indexUser]);
+        this.router.navigate(['/auth/start']);
+      }
   }
 }

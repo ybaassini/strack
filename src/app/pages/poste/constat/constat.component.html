@@ -1,156 +1,231 @@
 <nb-card>
   <nb-card-header class="h5">Constat</nb-card-header>
   <nb-card-body>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputFirstName" class="label">Date</label>
-          <input
-            type="text"
-            nbInput
-            fullWidth
-            id="inputFirstName"
-            placeholder="First Name"
-          />
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div>
+              <label for="inputDate" class="label">Date</label>
+            </div>
+            <input
+              nbInput
+              placeholder="Date"
+              [nbDatepicker]="formpicker"
+              formControlName="date"
+            />
+            <nb-datepicker #formpicker></nb-datepicker>
+            <ng-container *ngIf="form.get('date').invalid && form.get('date').touched">
+              <p class="error-message" *ngIf="form.get('date').errors?.required">
+                Ce champs est requis
+              </p>
+            </ng-container>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div>
+              <label for="inputTime" class="label">Heure</label>
+            </div>
+            <input nbInput [nbTimepicker]="timepicker" formControlName="time" />
+            <nb-timepicker #timepicker></nb-timepicker>
+            <ng-container *ngIf="form.get('time').invalid && form.get('time').touched">
+              <p class="error-message" *ngIf="form.get('time').errors?.required">
+                Ce champs est requis
+              </p>
+            </ng-container>
+          </div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputLastName" class="label">Heure</label>
-          <input
-            type="text"
-            nbInput
-            fullWidth
-            id="inputLastName"
-            placeholder="Last Name"
-          />
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputType" class="label">Type</label>
+                <nb-radio-group
+                  [name]="form.get('type').value"
+                  formControlName="type"
+                >
+                  <nb-radio value="log">Log</nb-radio>
+                  <nb-radio value="risque">Risque</nb-radio>
+                </nb-radio-group>
+                <ng-container *ngIf="form.get('type').invalid && form.get('type').touched">
+                  <p class="error-message" *ngIf="form.get('type').errors?.required">
+                    Ce champs est requis
+                  </p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div
+                class="form-group"
+                *ngIf="form.get('type').value == 'risque'"
+              >
+                <div>
+                  <label for="inputTypeRisk" class="label"
+                    >Type de Risque</label
+                  >
+                </div>
+                <nb-select fullWidth formControlName="typeRisk">
+                  <nb-option *ngFor="let risk of risks" [value]="risk.id">{{
+                    risk.label
+                  }}</nb-option>
+                </nb-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputRank" class="label">Tendance</label>
+            <nb-radio-group
+              [name]="form.get('rank').value"
+              formControlName="rank"
+            >
+              <nb-radio value="positif">Positif</nb-radio>
+              <nb-radio value="negatif">Négatif</nb-radio>
+            </nb-radio-group>
+            <ng-container *ngIf="form.get('rank').invalid && form.get('rank').touched">
+              <p class="error-message" *ngIf="form.get('rank').errors?.required">
+                Ce champs est requis
+              </p>
+            </ng-container>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputEmail" class="label">Type</label>
-          <nb-radio-group>
-            <nb-radio>Log</nb-radio>
-            <nb-radio>Risque</nb-radio>
-          </nb-radio-group>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputCompany" class="label">Nom d'entreprise</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              formControlName="company"
+              id="inputCompany"
+              placeholder="Entreprise"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputContact" class="label">Contact</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              formControlName="contact"
+              id="inputContact"
+              placeholder="Contact"
+            />
+          </div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputWebsite" class="label">Tendance</label>
-          <nb-radio-group>
-            <nb-radio>Positif</nb-radio>
-            <nb-radio>Négatif</nb-radio>
-          </nb-radio-group>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputLocal" class="label">Local</label>
+            <input
+              type="email"
+              nbInput
+              fullWidth
+              formControlName="local"
+              id="inputLocal"
+              placeholder="Local"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputChantier" class="label">Chantier</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              formControlName="chantier"
+              id="inputChantier"
+              placeholder="Chantier"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputEmail" class="label">Nom d'entreprise</label>
-          <input
-            type="email"
-            nbInput
-            fullWidth
-            id="inputEmail"
-            placeholder="Entreprise"
-          />
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div>
+              <label for="inputChantierEnjeu" class="label"
+                >Chantier à enjeu</label
+              >
+            </div>
+            <nb-select fullWidth formControlName="chantierEnjeu">
+              <nb-option value="1">Pas de chantier</nb-option>
+              <nb-option value="2">Chantier 1</nb-option>
+              <nb-option value="3">Chantier 2</nb-option>
+            </nb-select>
+          </div>
+          <div class="form-group">
+            <div>
+              <label for="inputStatus" class="label">Fait Marquant</label>
+            </div>
+            <nb-toggle formControlName="faitMarquant" status="primary"
+              >Oui</nb-toggle
+            >
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputDescription" class="label">Description</label>
+            <textarea
+              rows="5"
+              nbInput
+              fullWidth
+              formControlName="description"
+              placeholder="Description"
+            ></textarea>
+          </div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputWebsite" class="label">Contact</label>
-          <input
-            type="text"
-            nbInput
-            fullWidth
-            id="inputWebsite"
-            placeholder="Contact"
-          />
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputActions" class="label">Actions du RZ</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              formControlName="action"
+              id="inputActions"
+              placeholder="Actions"
+            />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div>
+              <label for="inputStatus" class="label">Constat</label>
+            </div>
+            <nb-toggle [disabled]="editMode" formControlName="finished" status="primary"
+              >Soldé</nb-toggle
+            >
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputEmail" class="label">Local</label>
-          <input
-            type="email"
-            nbInput
-            fullWidth
-            id="inputEmail"
-            placeholder="Local"
-          />
+      <div class="row">
+        <div class="col-md-2" *ngIf="!editMode">
+          <button type="submit" status="primary" nbButton (click)="save()">
+            Créer
+          </button>
+        </div>
+        <div class="col-md-2" *ngIf="editMode">
+          <button type="submit" status="primary" nbButton (click)="update()">
+            Enregistrer
+          </button>
+        </div>
+        <div class="col-md-2" *ngIf="editMode && form.get('finished').value == false" (click)="solde()">
+          <button type="submit" status="success" nbButton>Solder</button>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputWebsite" class="label">Chantier</label>
-          <input
-            type="text"
-            nbInput
-            fullWidth
-            id="inputWebsite"
-            placeholder="Chantier"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputEmail" class="label">Chantier à enjeu</label>
-          <nb-select selected="1">
-            <nb-option value="1">Chantier 1</nb-option>
-            <nb-option value="2">Chantier 2</nb-option>
-          </nb-select>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputWebsite" class="label">Description</label>
-          <textarea
-            rows="5"
-            nbInput
-            fullWidth
-            placeholder="Text Area"
-          ></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputEmail" class="label">Actions du RZ</label>
-          <input
-            type="email"
-            nbInput
-            fullWidth
-            id="inputEmail"
-            placeholder="Actions"
-          />
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputWebsite" class="label">Constat</label>
-          <nb-radio-group>
-            <nb-radio>Soldé</nb-radio>
-            <nb-radio>A suivre</nb-radio>
-          </nb-radio-group>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <button type="submit" status="primary" nbButton>Créer</button>
-      </div>
-      <div class="col-md-2">
-        <button type="submit" status="success" nbButton>Solder</button>
-      </div>
-    </div>
+    </form>
   </nb-card-body>
 </nb-card>

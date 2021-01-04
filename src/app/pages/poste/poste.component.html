@@ -5,14 +5,14 @@
         <div class="row p-3">
           <div class="col-md-4">
             <span><b>Date: </b></span>
-            <span>30/12/2020</span>
+            <span>{{ posteInProgress.date | date:'mediumDate' }}</span>
           </div>
           <div class="col-md-4">
             <span><b>Poste: </b></span>
-            <span>Matin</span>
+            <span>{{ posteInProgress.label }}</span>
           </div>
           <div class="col-md-4">
-            <button nbButton status="primary" [routerLink]="['constat']">
+            <button nbButton status="primary" [routerLink]="['poste/constat']">
               Créer un Constat
             </button>
           </div>
@@ -22,70 +22,64 @@
             <span><b>Constat: </b></span>
           </div>
         </div>
-        <nb-list>
-          <nb-list-item>
-            <div class="col-md-3">
-              Vendredi 12 décembre à 12h45
-            </div>
+        <nb-list *ngIf="posteInProgress.constats.length > 0">
+          <nb-list-item
+            *ngFor="let constat of posteInProgress.constats"
+          >
+            <div class="col-md-3">{{ constat.date | date:'mediumDate' }}</div>
             <div class="col-md-7">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s
+              {{ constat.description }}
             </div>
             <div class="col-md-2">
-              <button nbButton status="primary">
-                Détails
-              </button>
+              <button nbButton status="primary" [routerLink]="['poste/constat', constat.id]">Détails</button>
             </div>
           </nb-list-item>
+        </nb-list>
+        <nb-list *ngIf="posteInProgress.constats.length == 0">
           <nb-list-item>
-            <div class="col-md-3">
-              Vendredi 12 décembre à 12h45
-            </div>
-            <div class="col-md-7">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s
-            </div>
-            <div class="col-md-2">
-              <button nbButton status="primary">
-                Détails
-              </button>
-            </div>
-          </nb-list-item>
-          <nb-list-item>
-            <div class="col-md-3">
-              Vendredi 12 décembre à 12h45
-            </div>
-            <div class="col-md-7">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s
-            </div>
-            <div class="col-md-2">
-              <button nbButton status="primary">
-                Détails
-              </button>
-            </div>
-          </nb-list-item>
-          <nb-list-item>
-            <div class="col-md-3">
-              Vendredi 12 décembre à 12h45
-            </div>
-            <div class="col-md-7">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s
-            </div>
-            <div class="col-md-2">
-              <button nbButton status="primary">
-                Détails
-              </button>
-            </div>
+            <div class="col-md-12">Pas de constats signalés pendant ce poste</div>
           </nb-list-item>
         </nb-list>
       </nb-tab>
 
-      <nb-tab tabTitle="Historique">
+      <nb-tab class="p-0"tabTitle="Historique">
+        <div *ngFor="let posteFinished of postesFinished">
 
+        <div class="row p-3">
+          <div class="col-md-4">
+            <span><b>Date: </b></span>
+            <span>{{ posteFinished.date | date:'mediumDate' }}</span>
+          </div>
+          <div class="col-md-4">
+            <span><b>Poste: </b></span>
+            <span>{{ posteFinished.label }}</span>
+          </div>
+        </div>
+        <div class="row p-3">
+          <div class="col-md-6">
+            <span><b>Constat: </b></span>
+          </div>
+        </div>
+        <nb-list *ngIf="posteFinished.constats.length > 0">
+          <nb-list-item
+            *ngFor="let constat of posteFinished.constats"
+          >
+            <div class="col-md-3">{{ constat.date | date:'mediumDate' }}</div>
+            <div class="col-md-7">
+              {{ constat.description }}
+            </div>
+            <div class="col-md-2">
+              <button nbButton status="primary" [routerLink]="['poste/constat', constat.id]">Détails</button>
+            </div>
+          </nb-list-item>
+        </nb-list>
+        <nb-list *ngIf="posteFinished.constats.length == 0">
+          <nb-list-item>
+            <div class="col-md-12">Pas d'historique sur ce poste</div>
+          </nb-list-item>
+        </nb-list>    
+      </div>
       </nb-tab>
-
     </nb-tabset>
   </nb-card-body>
 </nb-card>

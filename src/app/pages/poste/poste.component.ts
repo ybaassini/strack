@@ -1,14 +1,34 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { PosteService } from 'app/@core/api';
 
 @Component({
-  selector: 'ngx-poste',
-  templateUrl: './poste.component.html',
-  styleUrls: ['./poste.component.scss']
+  selector: "ngx-poste",
+  templateUrl: "./poste.component.html",
+  styleUrls: ["./poste.component.scss"],
 })
 export class PosteComponent {
-  @ViewChild('constat', { static: true }) accordion;
+  public posteInProgress;
+  public postesFinished;
+  constructor(
+    public posteService: PosteService,
+    public activatedRoute: ActivatedRoute) {}
 
-  toggle() {
-    this.accordion.toggle();
+  ngOnInit() {
+    // this.activatedRoute.data.subscribe((res) => {
+    //   this.postesFinished = res.postes.data.data.filter(
+    //     (poste) => poste.status === "finished"
+    //   );
+    //   this.posteInProgress = res.postes.data.data.filter(
+    //     (poste) => poste.status === "in progress"
+    //   )[0];
+    // });
+    const postes = JSON.parse(localStorage.getItem('postes')) || [];
+    this.postesFinished = postes.filter(
+      (poste) => poste.status === "finished"
+    );
+    this.posteInProgress = postes.filter(
+      (poste) => poste.status === "in progress"
+    )[0];
   }
 }
