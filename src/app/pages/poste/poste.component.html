@@ -12,7 +12,7 @@
             <span>{{ posteInProgress.label }}</span>
           </div>
           <div class="col-md-4">
-            <button nbButton status="primary" [routerLink]="['poste/constat']">
+            <button nbButton status="primary" [routerLink]="['constat']">
               Créer un Constat
             </button>
           </div>
@@ -31,7 +31,7 @@
               {{ constat.description }}
             </div>
             <div class="col-md-2">
-              <button nbButton status="primary" [routerLink]="['poste/constat', constat.id]">Détails</button>
+              <button nbButton status="primary" [routerLink]="['constat', constat.id]">Détails</button>
             </div>
           </nb-list-item>
         </nb-list>
@@ -69,7 +69,7 @@
               {{ constat.description }}
             </div>
             <div class="col-md-2">
-              <button nbButton status="primary" [routerLink]="['poste/constat', constat.id]">Détails</button>
+              <button nbButton status="primary" [routerLink]="['constat', constat.id]">Détails</button>
             </div>
           </nb-list-item>
         </nb-list>

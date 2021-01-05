@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Rezo</string>
-    <string name="title_activity_main">Rezo</string>
-    <string name="package_name">com.rezo.app</string>
-    <string name="custom_url_scheme">com.rezo.app</string>
+    <string name="app_name">EPR</string>
+    <string name="title_activity_main">EPR</string>
+    <string name="package_name">com.epr.app</string>
+    <string name="custom_url_scheme">com.epr.app</string>
 </resources>

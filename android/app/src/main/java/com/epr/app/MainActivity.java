@@ -1,4 +1,4 @@
-package com.rezo.app;
+package com.epr.app;
 
 import android.os.Bundle;
 

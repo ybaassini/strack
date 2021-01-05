@@ -10,6 +10,7 @@
             </div>
             <input
               nbInput
+              readonly="readonly"
               placeholder="Date"
               [nbDatepicker]="formpicker"
               formControlName="date"
@@ -27,7 +28,7 @@
             <div>
               <label for="inputTime" class="label">Heure</label>
             </div>
-            <input nbInput [nbTimepicker]="timepicker" formControlName="time" />
+            <input nbInput readonly="readonly" [nbTimepicker]="timepicker" formControlName="time" />
             <nb-timepicker #timepicker></nb-timepicker>
             <ng-container *ngIf="form.get('time').invalid && form.get('time').touched">
               <p class="error-message" *ngIf="form.get('time').errors?.required">
@@ -212,17 +213,17 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-2" *ngIf="!editMode">
+        <div class="col-md-4" *ngIf="!editMode">
           <button type="submit" status="primary" nbButton (click)="save()">
             Créer
           </button>
         </div>
-        <div class="col-md-2" *ngIf="editMode">
+        <div class="col-md-4" *ngIf="editMode">
           <button type="submit" status="primary" nbButton (click)="update()">
             Enregistrer
           </button>
         </div>
-        <div class="col-md-2" *ngIf="editMode && form.get('finished').value == false" (click)="solde()">
+        <div class="col-md-4" *ngIf="editMode && form.get('finished').value == false" (click)="solde()">
           <button type="submit" status="success" nbButton>Solder</button>
         </div>
       </div>

@@ -50,14 +50,22 @@ export class ConstatComponent implements OnInit {
       faitMarquant: new FormControl(true, Validators.required),
     });
     this.route.params.subscribe(params => {
-      // this.poste = this.posteService.$posteInProgress.getValue();
-      this.poste = JSON.parse(localStorage.getItem('poste'));
       if (params.constatId) {
-        this.constat = this.poste.constats.filter(constat => constat.id == params.constatId)[0];
+        this.getConstatById(params.constatId);
         this.form.patchValue(this.constat);
         this.editMode = true;
       }
     });
+  }
+
+  getConstatById(id) {
+    const postes = JSON.parse(localStorage.getItem('postes')) || [];
+    postes.forEach(poste => {
+      const index = poste.constats.findIndex(constat => constat.id == id);
+      if (index > -1) {
+        this.constat = poste.constats[index];
+      }
+    })
   }
 
   save() {

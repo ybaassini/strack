@@ -24,11 +24,12 @@ export class PosteComponent {
     //   )[0];
     // });
     const postes = JSON.parse(localStorage.getItem('postes')) || [];
+    const posteInProgress = JSON.parse(localStorage.getItem('poste'));
     this.postesFinished = postes.filter(
-      (poste) => poste.status === "finished"
+      (poste) => poste.status === "finished" && poste.zone == posteInProgress.zone && poste.projet == posteInProgress.projet
     );
     this.posteInProgress = postes.filter(
-      (poste) => poste.status === "in progress"
+      (poste) => poste.status === "in progress" && poste.zone == posteInProgress.zone && poste.projet == posteInProgress.projet
     )[0];
   }
 }

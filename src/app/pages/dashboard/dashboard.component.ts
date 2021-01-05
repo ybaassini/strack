@@ -77,8 +77,11 @@ export class DashboardComponent implements OnDestroy {
         this.solarValue = data;
       });
 
+      const posteInProgress = JSON.parse(localStorage.getItem('poste'));
       const postes = JSON.parse(localStorage.getItem('postes'));
-      postes.forEach(
+      postes
+      .filter(poste =>  poste.zone == posteInProgress.zone && poste.projet == posteInProgress.projet)
+      .forEach(
         (poste) => {
           this.constats = [
             ...this.constats,

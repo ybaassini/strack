@@ -38,7 +38,7 @@ export class LoginComponent extends NbLoginComponent {
     //   );
       const users = JSON.parse(localStorage.getItem('users')) || [];
       const indexUser: any = users.findIndex(user => user.email == this.user.email && user.password == this.user.password);
-      if (typeof indexUser !== "undefined" || indexUser <  0) {
+      if (indexUser >  -1) {
         // this.authService.setLocalStorage(res);
         this.authService.saveUser(users[indexUser]);
         this.router.navigate(['/auth/start']);

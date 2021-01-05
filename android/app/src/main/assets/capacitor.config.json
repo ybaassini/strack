@@ -1,6 +1,6 @@
 {
-  "appId": "com.rezo.app",
-  "appName": "Rezo",
+  "appId": "com.epr.app",
+  "appName": "EPR",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",
