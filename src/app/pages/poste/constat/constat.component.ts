@@ -81,6 +81,7 @@ export class ConstatComponent implements OnInit {
     //   });
     const id = uuidv4();
     const constat = {...this.form.value, id }
+    this.poste = JSON.parse(localStorage.getItem('poste'));
     this.constatService.createConstat(this.poste.id, constat);
     this.router.navigate(['pages/poste']);
   }
@@ -96,6 +97,7 @@ export class ConstatComponent implements OnInit {
     //     this.posteService.updatePosteInProgress(res.data.data);
     //     this.router.navigate(['pages/poste']);
     //   });
+    this.poste = JSON.parse(localStorage.getItem('poste'));
 
     this.constatService.updateConstat(this.poste.id, this.form.value)
     this.router.navigate(['pages/poste']);
@@ -107,6 +109,7 @@ export class ConstatComponent implements OnInit {
       return;
     }
     this.form.get('finished').setValue(true);
+    this.poste = JSON.parse(localStorage.getItem('poste'));
     // this.constatService
     //   .updateConstat(this.poste.id, this.form.value)
     //   .subscribe((res: any) => {

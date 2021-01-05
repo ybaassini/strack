@@ -10,7 +10,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Poste',
-    icon: 'shopping-cart-outline',
+    icon: 'book-open-outline',
     link: '/pages/poste'
   },
   {

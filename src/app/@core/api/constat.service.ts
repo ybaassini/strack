@@ -52,7 +52,7 @@ export class ConstatService {
         const poste = JSON.parse(localStorage.getItem('poste'));
         const postes = JSON.parse(localStorage.getItem('postes')) || [];
         const indexPoste = postes.findIndex(poste => poste.id == posteId);
-        const indexConstat = poste.constats.findIndex(constat => constat.id == constat.id);
+        const indexConstat = poste.constats.findIndex(c => constat.id == c.id);
         poste.constats[indexConstat] = constat;
         postes[indexPoste] = poste;
         localStorage.setItem('poste', JSON.stringify(poste));

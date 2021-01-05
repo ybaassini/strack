@@ -2,7 +2,6 @@ import {Component, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators' ;
-import { SolarData } from '../../@core/data/solar';
 
 interface CardSettings {
   title: string;
@@ -63,19 +62,12 @@ export class DashboardComponent implements OnDestroy {
   constatsInProgress = [];
 
   constructor(private themeService: NbThemeService,
-              private solarService: SolarData,
               public activatedRoute: ActivatedRoute) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {
         this.statusCards = this.statusCardsByThemes[theme.name];
     });
-
-    this.solarService.getSolarData()
-      .pipe(takeWhile(() => this.alive))
-      .subscribe((data) => {
-        this.solarValue = data;
-      });
 
       const posteInProgress = JSON.parse(localStorage.getItem('poste'));
       const postes = JSON.parse(localStorage.getItem('postes'));
