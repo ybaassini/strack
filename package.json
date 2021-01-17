@@ -77,5 +77,8 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "coverageDirectory": "../coverage"
+  },
+  "engines": { 
+    "node": "12.19.0" 
   }
 }

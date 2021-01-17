@@ -4,28 +4,16 @@ import { PhotoSchema } from 'common/schemas/photo.schema';
 export const UserSchema = new mongoose.Schema({
   id: String,
   date: {type: Date, default: Date.now},
-  name: String,
-  surname: String,
+  firstName: String,
+  lastName: String,
   email: String,
-  phone: String,
+  role: String,
   password: String,
-  birthdaydate: Date,
-  roles: Array<String>(),
   auth: {
     email : {
       valid : { type: Boolean, default: false }
-    },
-    facebook: {
-      userid: String
-    },
-    gmail: {
-      userid: String
     }
   },
   settings: {
-  },
-  photos: {
-    profilePic: {}, //{ type:  mongoose.Schema.Types.ObjectId , ref: 'PhotoSchema'}
-    gallery: [] //[{type:  mongoose.Schema.Types.ObjectId , ref: 'PhotoSchema'}]
   }
 });
