@@ -32,7 +32,7 @@ export class UsersService {
       if(!userRegistered){
         newUser.password = await bcrypt.hash(newUser.password, saltRounds);
         var createdUser = new this.userModel(newUser);
-        createdUser.roles = ["User"];
+        // createdUser.roles = ["User"];
         return await createdUser.save();
       } else if (!userRegistered.auth.email.valid) {
         return userRegistered;
@@ -66,23 +66,22 @@ export class UsersService {
     let userFromDb = await this.userModel.findOne({ email: profileDto.email});
     if(!userFromDb) throw new HttpException('COMMON.USER_NOT_FOUND', HttpStatus.NOT_FOUND);
 
-    if(profileDto.name) userFromDb.name = profileDto.name;
-    if(profileDto.surname) userFromDb.surname = profileDto.surname;
-    if(profileDto.phone) userFromDb.phone = profileDto.phone;
-    if(profileDto.birthdaydate) userFromDb.birthdaydate = profileDto.birthdaydate;
+    if(profileDto.firstName) userFromDb.firstName = profileDto.firstName;
+    if(profileDto.lastName) userFromDb.lastName = profileDto.lastName;
+    if(profileDto.role) userFromDb.role = profileDto.role;
 
-    if(profileDto.profilepicture){
-      let base64Data = profileDto.profilepicture.replace(/^data:image\/png;base64,/, "");
-      let dir = "../public/users/"+ userFromDb.email;
+    // if(profileDto.profilepicture){
+    //   let base64Data = profileDto.profilepicture.replace(/^data:image\/png;base64,/, "");
+    //   let dir = "../public/users/"+ userFromDb.email;
       
-      let success = await this.writeFile( dir, "profilepic.png", base64Data);
-      if(success == true) {
-        userFromDb.photos = userFromDb.photos || { profilePic : new PhotoDto(), gallery: []};
-        userFromDb.photos.profilePic = userFromDb.photos.profilePic || new PhotoDto();
-        userFromDb.photos.profilePic.date = new Date();
-        userFromDb.photos.profilePic.url = "/public/users/" + userFromDb.email + "/profilepic.png"
-      }
-    }
+    //   let success = await this.writeFile( dir, "profilepic.png", base64Data);
+    //   if(success == true) {
+    //     userFromDb.photos = userFromDb.photos || { profilePic : new PhotoDto(), gallery: []};
+    //     userFromDb.photos.profilePic = userFromDb.photos.profilePic || new PhotoDto();
+    //     userFromDb.photos.profilePic.date = new Date();
+    //     userFromDb.photos.profilePic.url = "/public/users/" + userFromDb.email + "/profilepic.png"
+    //   }
+    // }
     
     await userFromDb.save();
     return userFromDb;
@@ -100,18 +99,18 @@ export class UsersService {
           let base64Data = galleryRequest.newPhoto.imageData.replace(/^data:image\/png;base64,/, "");
           var newFileName = this.guid() + ".png";
           var success = await this.writeFile( dir, newFileName, base64Data);
-          if(success == true) {
-            let newPhoto = new PhotoDto(galleryRequest.newPhoto);
-            newPhoto.date = new Date();
-            newPhoto.url = "/public/users/" + userFromDb.email + "/" + newFileName;
-            userFromDb.photos = userFromDb.photos || { profilePic : new PhotoDto(), gallery: []};
-            userFromDb.photos.gallery.push(newPhoto) 
-          }
+          // if(success == true) {
+          //   let newPhoto = new PhotoDto(galleryRequest.newPhoto);
+          //   newPhoto.date = new Date();
+          //   newPhoto.url = "/public/users/" + userFromDb.email + "/" + newFileName;
+          //   userFromDb.photos = userFromDb.photos || { profilePic : new PhotoDto(), gallery: []};
+          //   userFromDb.photos.gallery.push(newPhoto) 
+          // }
           break;
         case 'remove':
-          var success = await this.removeFile( dir, galleryRequest.photoId);
-          if(success) _.remove(userFromDb.photos.gallery, (photo) => { return photo.url.includes(galleryRequest.photoId)});
-          userFromDb.markModified('photos');
+          // var success = await this.removeFile( dir, galleryRequest.photoId);
+          // if(success) _.remove(userFromDb.photos.gallery, (photo) => { return photo.url.includes(galleryRequest.photoId)});
+          // userFromDb.markModified('photos');
           break;
         default:
           throw new HttpException('GALLERY.MISSING_ACTION', HttpStatus.NOT_FOUND);

@@ -24,12 +24,12 @@ export class AuthService {
   async validateLogin(email, password) {
     var userFromDb = await this.userModel.findOne({ email: email});
     if(!userFromDb) throw new HttpException('LOGIN.USER_NOT_FOUND', HttpStatus.NOT_FOUND);
-    if(!userFromDb.auth.email.valid) throw new HttpException('LOGIN.EMAIL_NOT_VERIFIED', HttpStatus.FORBIDDEN);
+    // if(!userFromDb.auth.email.valid) throw new HttpException('LOGIN.EMAIL_NOT_VERIFIED', HttpStatus.FORBIDDEN);
 
     var isValidPass = await bcrypt.compare(password, userFromDb.password);
 
     if(isValidPass){
-      var accessToken = await this.jwtService.createToken(email, userFromDb.roles);
+      var accessToken = await this.jwtService.createToken(email, userFromDb.role);
       return { token: accessToken, user: new UserDto(userFromDb)}
     } else {
       throw new HttpException('LOGIN.ERROR', HttpStatus.UNAUTHORIZED);
@@ -62,7 +62,7 @@ export class AuthService {
       var newConsent = new this.consentRegistryModel();
       newConsent.email = email;
       newConsent.date = new Date();
-      newConsent.registrationForm = ["name", "surname", "email", "birthday date", "password"];
+      newConsent.registrationForm = ["firstName", "lastName", "email", "role", "password"];
       newConsent.checkboxText = "I accept privacy policy";
       var privacyPolicyResponse: any = await http.get("https://www.XXXXXX.com/api/privacy-policy").toPromise()
       newConsent.privacyPolicy = privacyPolicyResponse.data.content; 

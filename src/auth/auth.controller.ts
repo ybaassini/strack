@@ -10,7 +10,7 @@ import { UsersService } from '../users/users.service';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 
 
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
   constructor(private readonly authService: AuthService, private readonly userService: UsersService ) {}
 
@@ -31,22 +31,23 @@ export class AuthController {
     try {
       var newUser = new UserDto(await this.userService.createNewUser(createUserDto));
       await this.authService.createEmailToken(newUser.email);
-      await this.authService.saveUserConsent(newUser.email);
-      var sent = await this.authService.sendEmailVerification(newUser.email);
-      if(sent){
-        return new ResponseSuccess("REGISTRATION.USER_REGISTERED_SUCCESSFULLY");
-      } else {
-        return new ResponseError("REGISTRATION.ERROR.MAIL_NOT_SENT");
-      }
+      // await this.authService.saveUserConsent(newUser.email);
+      // var sent = await this.authService.sendEmailVerification(newUser.email);
+      // if(sent){
+      //   return new ResponseSuccess("REGISTRATION.USER_REGISTERED_SUCCESSFULLY");
+      // } else {
+      //   return new ResponseError("REGISTRATION.ERROR.MAIL_NOT_SENT");
+      // }
+      return new ResponseSuccess("REGISTRATION.USER_REGISTERED_SUCCESSFULLY");
     } catch(error){
       return new ResponseError("REGISTRATION.ERROR.GENERIC_ERROR", error);
     }
   }
 
   @Get('email/verify/:token')
-  public async verifyEmail(@Param() params): Promise<IResponse> {
+  public async verifyEmail(@Param('token') token: string): Promise<IResponse> {
     try {
-      var isEmailVerified = await this.authService.verifyEmail(params.token);
+      var isEmailVerified = await this.authService.verifyEmail(token);
       return new ResponseSuccess("LOGIN.EMAIL_VERIFIED", isEmailVerified);
     } catch(error) {
       return new ResponseError("LOGIN.ERROR", error);
@@ -54,10 +55,10 @@ export class AuthController {
   }
 
   @Get('email/resend-verification/:email')
-  public async sendEmailVerification(@Param() params): Promise<IResponse> {
+  public async sendEmailVerification(@Param('email') email: string): Promise<IResponse> {
     try {
-      await this.authService.createEmailToken(params.email);
-      var isEmailSent = await this.authService.sendEmailVerification(params.email);
+      await this.authService.createEmailToken(email);
+      var isEmailSent = await this.authService.sendEmailVerification(email);
       if(isEmailSent){
         return new ResponseSuccess("LOGIN.EMAIL_RESENT", null);
       } else {
@@ -69,9 +70,9 @@ export class AuthController {
   }
 
   @Get('email/forgot-password/:email')
-  public async sendEmailForgotPassword(@Param() params): Promise<IResponse> {
+  public async sendEmailForgotPassword(@Param('email') email: string): Promise<IResponse> {
     try {
-      var isEmailSent = await this.authService.sendEmailForgotPassword(params.email);
+      var isEmailSent = await this.authService.sendEmailForgotPassword(email);
       if(isEmailSent){
         return new ResponseSuccess("LOGIN.EMAIL_RESENT", null);
       } else {

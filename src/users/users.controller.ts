@@ -21,7 +21,9 @@ import { AuthGuard } from '../../node_modules/@nestjs/passport';
 import { ProfileDto } from './dto/profile.dto';
 import { SettingsDto } from './dto/settings.dto';
 import { UpdateGalleryDto } from './dto/update-gallery.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('User')
 @Controller('users')
 @UseGuards(AuthGuard('jwt'))
 @UseInterceptors(LoggingInterceptor, TransformInterceptor)
@@ -32,9 +34,9 @@ export class UsersController {
   @Get('user/:email')
   @UseGuards(RolesGuard)
   @Roles('User')
-  async findById(@Param() params): Promise<IResponse>{
+  async findById(@Param('email') email: string): Promise<IResponse>{
     try {
-      var user =  await this.usersService.findByEmail(params.email);
+      var user =  await this.usersService.findByEmail(email);
       return new ResponseSuccess("COMMON.SUCCESS", new UserDto(user));
     } catch(error){
       return new ResponseError("COMMON.ERROR.GENERIC_ERROR", error);
