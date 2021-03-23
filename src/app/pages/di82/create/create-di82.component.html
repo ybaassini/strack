@@ -1,0 +1,102 @@
+<nb-card>
+  <nb-card-header>Créer une di82</nb-card-header>
+  <nb-card-body>
+    <form class="form-horizontal" [formGroup]="form">
+      <div class="form-group row">
+        <label for="inputDate" class="label col-sm-3 form-control-label"
+          >Date</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            disabled
+            id="inputDate"
+            placeholder="Date"
+            formControlName="date"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputRapporteur" class="label col-sm-3 form-control-label"
+          >Rapporteur</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            disabled
+            id="inputRapporteur"
+            placeholder="Rapporteur"
+            formControlName="rapporteur"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputZone" class="label col-sm-3 form-control-label"
+          >Zone</label
+        >
+        <div class="col-sm-9">
+          <nb-select formControlName="zone">
+            <nb-option *ngFor="let zone of zones" [value]="zone.id">{{
+              zone.label
+            }}</nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputNumero" class="label col-sm-3 form-control-label"
+          >N° de fiche</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="inputNumero"
+            placeholder="Numero"
+            formControlName="numero"
+          />
+          <ng-container *ngIf="f.numero.invalid && (f.numero.touched || submitted)">
+            <p class="caption status-danger" *ngIf="f.numero.errors?.required">
+              Ce champs est requis
+            </p>
+          </ng-container>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputConnu" class="label col-sm-3 form-control-label"
+          >Contrôle C/NC</label
+        >
+        <div class="col-sm-9">
+          <nb-toggle formControlName="conforme" status="danger">Conforme</nb-toggle>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputCommentaire" class="label col-sm-3 form-control-label"
+          >Commentaire</label
+        >
+        <div class="col-sm-9">
+          <textarea
+            nbInput
+            fullWidth
+            placeholder="Commentaire"
+            formControlName="commentaire"
+          ></textarea>
+          <ng-container *ngIf="form.get('commentaire').errors && (form.get('commentaire').touched || submitted)">
+            <p class="caption status-danger" *ngIf="form.get('commentaire').errors.mustBeDefined">
+              Commentaire obligatoire
+            </p>
+          </ng-container>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button type="submit" nbButton status="warning" (click)="submit()">Créer</button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

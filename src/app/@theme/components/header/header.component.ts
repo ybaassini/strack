@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
-import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { UserService } from 'app/@core/api';
 
 @Component({
   selector: 'ngx-header',
@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private router: Router,
-              private userService: UserData,
+              private userService: UserService,
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService) {
   }
@@ -58,13 +58,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe(title => {
         if (title === 'Log out') {
-          const postes = JSON.parse(localStorage.getItem('postes')) || [];
-          const poste = JSON.parse(localStorage.getItem('poste'));
-          const posteToSave = {...poste, status: 'finished'};
-          const index = postes.findIndex(poste => poste.id == posteToSave.id);
-          localStorage.setItem('poste', JSON.stringify(posteToSave));
-          postes[index]=posteToSave;
-          localStorage.setItem('postes', JSON.stringify(postes));
           this.router.navigate(['/auth/login']);
         }
       });
@@ -72,9 +65,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.currentTheme = 'corporate';
     this.themeService.changeTheme('corporate');
 
-    this.userService.getUsers()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((users: any) => this.user = users.nick);
+    this.user = JSON.parse(localStorage.getItem('user'));
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
@@ -109,7 +100,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   navigateHome() {
-    this.menuService.navigateHome();
+    this.router.navigate(['/pages/menu']);
     return false;
   }
 }

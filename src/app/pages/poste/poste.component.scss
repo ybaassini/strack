@@ -2,9 +2,6 @@ nb-list {
   nb-list-item {
     padding-left: 0;
     padding-right: 0;
-    // border-bottom: 0;
-    &:first-child {
-      // border: 0
-    }
+    // border: 1px solid #edf1f7;
   }
 }

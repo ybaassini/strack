@@ -1,0 +1,1647 @@
+openapi: 3.0.0
+info:
+  title: EPR api
+  description: The list of EPR project endpoints
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    ProfileDto:
+      type: object
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        role:
+          type: string
+        profilepicture:
+          type: string
+      required:
+        - email
+        - firstName
+        - lastName
+        - role
+        - profilepicture
+    UpdateGalleryDto:
+      type: object
+      properties: {}
+    SettingsDto:
+      type: object
+      properties: {}
+    CreatePosteDto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        label:
+          type: string
+        email:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+        constats:
+          type: array
+          items:
+            type: string
+      required:
+        - date
+        - status
+        - label
+        - email
+        - projet
+        - zone
+        - constats
+    RequestCreateConstatDto:
+      type: object
+      properties: {}
+    ProjetDto:
+      type: object
+      properties:
+        id:
+          type: number
+        numero:
+          type: number
+        tranche:
+          type: string
+      required:
+        - id
+        - numero
+        - tranche
+    ZoneDto:
+      type: object
+      properties:
+        id:
+          type: number
+        label:
+          type: string
+      required:
+        - id
+        - label
+    RiskDto:
+      type: object
+      properties:
+        id:
+          type: number
+        label:
+          type: string
+        vitale:
+          type: boolean
+      required:
+        - id
+        - label
+        - vitale
+    ConstatDto:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          format: date-time
+          type: string
+        time:
+          format: date-time
+          type: string
+        semaine:
+          type: number
+        typeRisk:
+          type: number
+        risk:
+          $ref: '#/components/schemas/RiskDto'
+        zone:
+          type: string
+        type:
+          type: string
+          enum:
+            - log
+            - risk
+        rank:
+          type: string
+          enum:
+            - positive
+            - negative
+        company:
+          type: string
+        contact:
+          type: string
+        local:
+          type: string
+        site:
+          type: string
+        action:
+          type: string
+        description:
+          type: string
+        picture:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        faitMarquant:
+          type: boolean
+        finished:
+          type: boolean
+      required:
+        - id
+        - date
+        - time
+        - semaine
+        - typeRisk
+        - risk
+        - zone
+        - type
+        - rank
+        - company
+        - contact
+        - local
+        - site
+        - action
+        - description
+        - picture
+        - projet
+        - faitMarquant
+        - finished
+    PosteDto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        label:
+          type: string
+        email:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+        constats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConstatDto'
+      required:
+        - id
+        - status
+        - date
+        - label
+        - email
+        - projet
+        - zone
+        - constats
+    CreateProjetDto:
+      type: object
+      properties:
+        numero:
+          type: string
+        tranche:
+          type: string
+      required:
+        - numero
+        - tranche
+    CreateZoneDto:
+      type: object
+      properties:
+        label:
+          type: string
+      required:
+        - label
+    CreateRiskDto:
+      type: object
+      properties:
+        label:
+          type: string
+        vitale:
+          type: boolean
+      required:
+        - label
+        - vitale
+    Login:
+      type: object
+      properties: {}
+    CreateUserDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+        password:
+          type: string
+      required:
+        - firstName
+        - lastName
+        - email
+        - role
+        - password
+    ResetPasswordDto:
+      type: object
+      properties:
+        email:
+          type: string
+        newPassword:
+          type: string
+        newPasswordToken:
+          type: string
+        currentPassword:
+          type: string
+      required:
+        - email
+        - newPassword
+        - newPasswordToken
+        - currentPassword
+    ConsigneDto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        description:
+          type: string
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+      required:
+        - id
+        - status
+        - date
+        - description
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+    CreateConsigneDto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        description:
+          type: string
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+      required:
+        - date
+        - status
+        - description
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+    CreateAppuiConseilDto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        commentaire:
+          type: string
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+        chantier:
+          type: string
+        local:
+          type: string
+      required:
+        - date
+        - status
+        - commentaire
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - chantier
+        - local
+    AppuiConseilDto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        commentaire:
+          type: string
+        rapporteur:
+          type: string
+        chantier:
+          type: string
+        local:
+          type: string
+        responsable:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+      required:
+        - id
+        - status
+        - date
+        - commentaire
+        - rapporteur
+        - chantier
+        - local
+        - responsable
+        - projet
+        - zone
+    CreateDi82Dto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        commentaire:
+          type: string
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+        numero:
+          type: string
+        conforme:
+          type: boolean
+      required:
+        - date
+        - status
+        - commentaire
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - numero
+        - conforme
+    Di82Dto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        commentaire:
+          type: string
+        numero:
+          type: string
+        conforme:
+          type: boolean
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+      required:
+        - id
+        - status
+        - date
+        - commentaire
+        - numero
+        - conforme
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+    CreateMaterielDto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        description:
+          type: string
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+        type:
+          type: string
+      required:
+        - date
+        - status
+        - description
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - type
+    MaterielDto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        description:
+          type: string
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+        type:
+          type: string
+      required:
+        - id
+        - status
+        - date
+        - description
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - type
+    CreateChantierDto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        commentaire:
+          type: string
+        ouverture:
+          type: boolean
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+        numero:
+          type: string
+        conforme:
+          type: boolean
+        chantier:
+          type: string
+        local:
+          type: string
+        contact:
+          type: string
+      required:
+        - date
+        - status
+        - commentaire
+        - ouverture
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - numero
+        - conforme
+        - chantier
+        - local
+        - contact
+    ChantierDto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        commentaire:
+          type: string
+        numero:
+          type: string
+        conforme:
+          type: boolean
+        rapporteur:
+          type: string
+        chantier:
+          type: string
+        local:
+          type: string
+        contact:
+          type: string
+        responsable:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+        ouverture:
+          type: boolean
+      required:
+        - id
+        - status
+        - date
+        - commentaire
+        - numero
+        - conforme
+        - rapporteur
+        - chantier
+        - local
+        - contact
+        - responsable
+        - projet
+        - zone
+        - ouverture
+    CreatePlancherDto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        commentaire:
+          type: string
+        ouverture:
+          type: boolean
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+        numero:
+          type: string
+        conforme:
+          type: boolean
+      required:
+        - date
+        - status
+        - commentaire
+        - ouverture
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - numero
+        - conforme
+    PlancherDto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        commentaire:
+          type: string
+        numero:
+          type: string
+        conforme:
+          type: boolean
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+        ouverture:
+          type: boolean
+      required:
+        - id
+        - status
+        - date
+        - commentaire
+        - numero
+        - conforme
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - ouverture
+    CreatePdfDto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        commentaire:
+          type: string
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+        numero:
+          type: string
+        conforme:
+          type: boolean
+      required:
+        - date
+        - status
+        - commentaire
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - numero
+        - conforme
+    PdfDto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        commentaire:
+          type: string
+        numero:
+          type: string
+        conforme:
+          type: boolean
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+      required:
+        - id
+        - status
+        - date
+        - commentaire
+        - numero
+        - conforme
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+    CreateAdrDto:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        commentaire:
+          type: string
+        rapporteur:
+          type: string
+        responsable:
+          type: string
+        projet:
+          type: string
+        zone:
+          type: string
+        conforme:
+          type: boolean
+        intitule:
+          type: string
+        local:
+          type: string
+        contact:
+          type: string
+      required:
+        - date
+        - status
+        - commentaire
+        - rapporteur
+        - responsable
+        - projet
+        - zone
+        - conforme
+        - intitule
+        - local
+        - contact
+    AdrDto:
+      type: object
+      properties:
+        id:
+          type: number
+        status:
+          type: string
+          enum:
+            - in progress
+            - finished
+        date:
+          format: date-time
+          type: string
+        commentaire:
+          type: string
+        conforme:
+          type: boolean
+        rapporteur:
+          type: string
+        adr:
+          type: string
+        local:
+          type: string
+        intitule:
+          type: string
+        responsable:
+          type: string
+        projet:
+          $ref: '#/components/schemas/ProjetDto'
+        zone:
+          $ref: '#/components/schemas/ZoneDto'
+      required:
+        - id
+        - status
+        - date
+        - commentaire
+        - conforme
+        - rapporteur
+        - adr
+        - local
+        - intitule
+        - responsable
+        - projet
+        - zone
+paths:
+  /:
+    get:
+      operationId: root
+      parameters: []
+      responses:
+        '200':
+          description: ''
+  '/users/user/{email}':
+    get:
+      operationId: findById
+      parameters:
+        - name: email
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - User
+  /users/profile/update:
+    post:
+      operationId: updateProfile
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - User
+  /users/gallery/update:
+    post:
+      operationId: updateGallery
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGalleryDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - User
+  /users/settings/update:
+    post:
+      operationId: updateSettings
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingsDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - User
+  /api/postes:
+    get:
+      operationId: getPostes
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Poste
+    post:
+      operationId: createPoste
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePosteDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Poste
+    put:
+      operationId: updatePoste
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PosteDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Poste
+  '/api/postes/{id}':
+    get:
+      operationId: getPoste
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Poste
+  '/api/postes/constat/{id}':
+    get:
+      operationId: getConstat
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Poste
+  /api/postes/constat:
+    post:
+      operationId: createConstat
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestCreateConstatDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Poste
+    put:
+      operationId: updateConstat
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RequestCreateConstatDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Poste
+  /api/projets:
+    get:
+      operationId: getProjets
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Projet
+    post:
+      operationId: createProjet
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjetDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Projet
+  '/api/projets/{id}':
+    get:
+      operationId: getProjet
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Projet
+  /api/zones:
+    get:
+      operationId: getZones
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Zone
+    post:
+      operationId: createZone
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateZoneDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Zone
+  '/api/zones/{id}':
+    get:
+      operationId: getZone
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Zone
+  /api/risques:
+    get:
+      operationId: getRisques
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Risque
+    post:
+      operationId: createRisque
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRiskDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Risque
+  '/api/risques/{id}':
+    get:
+      operationId: getRisque
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Risque
+  /api/auth/email/login:
+    post:
+      operationId: login
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '200':
+          description: ''
+  /api/auth/email/register:
+    post:
+      operationId: register
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '200':
+          description: ''
+  '/api/auth/email/verify/{token}':
+    get:
+      operationId: verifyEmail
+      parameters:
+        - name: token
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  '/api/auth/email/resend-verification/{email}':
+    get:
+      operationId: sendEmailVerification
+      parameters:
+        - name: email
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  '/api/auth/email/forgot-password/{email}':
+    get:
+      operationId: sendEmailForgotPassword
+      parameters:
+        - name: email
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /api/auth/email/reset-password:
+    post:
+      operationId: setNewPassord
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordDto'
+      responses:
+        '200':
+          description: ''
+  /api/consignes:
+    get:
+      operationId: getConsignes
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Consigne
+    post:
+      operationId: createConsigne
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateConsigneDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Consigne
+  '/api/consignes/{id}':
+    get:
+      operationId: getConsigne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsigneDto'
+      tags:
+        - Consigne
+    put:
+      operationId: updateConsigne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateConsigneDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Consigne
+  /api/appui-conseils:
+    get:
+      operationId: getAppuiConseils
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - AppuiConseil
+    post:
+      operationId: createAppuiConseil
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAppuiConseilDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - AppuiConseil
+    put:
+      operationId: updateAppuiConseil
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppuiConseilDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - AppuiConseil
+  '/api/appui-conseils/{id}':
+    get:
+      operationId: getAppuiConseil
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - AppuiConseil
+  /api/di82s:
+    get:
+      operationId: getDi82s
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Di82
+    post:
+      operationId: createDi82
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDi82Dto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Di82
+    put:
+      operationId: updateDi82
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Di82Dto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Di82
+  '/api/di82s/{id}':
+    get:
+      operationId: getDi82
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Di82
+  /api/materiels:
+    get:
+      operationId: getMateriels
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Materiel
+    post:
+      operationId: createMateriel
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMaterielDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Materiel
+    put:
+      operationId: updateMateriel
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaterielDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Materiel
+  '/api/materiels/{id}':
+    get:
+      operationId: getMateriel
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Materiel
+  /api/chantiers:
+    get:
+      operationId: getChantiers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Chantier
+    post:
+      operationId: createChantier
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChantierDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Chantier
+    put:
+      operationId: updateChantier
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChantierDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Chantier
+  '/api/chantiers/{id}':
+    get:
+      operationId: getChantier
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Chantier
+  /api/planchers:
+    get:
+      operationId: getPlanchers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Plancher
+    post:
+      operationId: createPlancher
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlancherDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Plancher
+    put:
+      operationId: updatePlancher
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlancherDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Plancher
+  '/api/planchers/{id}':
+    get:
+      operationId: getPlancher
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Plancher
+  /api/pdfs:
+    get:
+      operationId: getPdfs
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Pdf
+    post:
+      operationId: createPdf
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePdfDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Pdf
+    put:
+      operationId: updatePdf
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PdfDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Pdf
+  '/api/pdfs/{id}':
+    get:
+      operationId: getPdf
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Pdf
+  /api/adrs:
+    get:
+      operationId: getAdrs
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Adr
+    post:
+      operationId: createAdr
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAdrDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Adr
+    put:
+      operationId: updateAdr
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdrDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Adr
+  '/api/adrs/{id}':
+    get:
+      operationId: getAdr
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Adr

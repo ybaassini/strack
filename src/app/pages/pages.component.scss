@@ -25,6 +25,14 @@
     background-color: $bleu-fonce !important;
     border-color: $bleu-fonce !important;
   }
+  ::ng-deep button.status-secondary {
+    background-color: $orange !important;
+    border-color: $orange !important;
+  }
+  ::ng-deep button.status-warning {
+    background-color: $orange !important;
+    border-color: $orange !important;
+  }
   ::ng-deep .nb-theme-corporate nb-menu .menu-item > .menu-items > .menu-item a.active {
     color: $bleu-fonce !important;
   }

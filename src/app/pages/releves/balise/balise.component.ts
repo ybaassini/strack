@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
-import { SmartTableData } from '../../../@core/data/smart-table';
-
 @Component({
   selector: 'ngx-balise',
   templateUrl: './balise.component.html',
@@ -198,9 +196,8 @@ export class BaliseComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor() {
+    this.source.load([]);
   }
 
   onDeleteConfirm(event): void {

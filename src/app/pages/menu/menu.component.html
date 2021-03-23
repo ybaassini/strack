@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap">
+  <div class="col-md-3 text-center p-2" *ngFor="let item of items">
+    <div class="menu-item" [routerLink]="[item.link]"  >
+      <div class="menu-item-icon">
+        <img *ngIf="item.img" [src]="item.img" alt="">
+        <nb-icon *ngIf="!item.img" [icon]="item.icon"></nb-icon>
+      </div>
+      <h7>{{item.title}}</h7>
+    </div>
+  </div>
+</div>
+

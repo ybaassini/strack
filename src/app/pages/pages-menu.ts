@@ -14,6 +14,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/poste'
   },
   {
+    title: 'Menu',
+    icon: 'book-open-outline',
+    link: '/pages/menu'
+  },
+  {
     title: 'Cartographie',
     icon: 'layout-outline',
     link: '/pages/cartographie',

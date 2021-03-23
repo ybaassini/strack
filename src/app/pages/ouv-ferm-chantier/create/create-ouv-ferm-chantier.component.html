@@ -1,0 +1,110 @@
+<nb-card>
+  <nb-card-header>Créer une chantier</nb-card-header>
+  <nb-card-body>
+    <form class="form-horizontal" [formGroup]="form">
+      <div class="form-group row">
+        <label for="inputDate" class="label col-sm-3 form-control-label"
+          >Date</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            disabled
+            id="inputDate"
+            placeholder="Date"
+            formControlName="date"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputRapporteur" class="label col-sm-3 form-control-label"
+          >Rapporteur</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            disabled
+            id="inputRapporteur"
+            placeholder="Rapporteur"
+            formControlName="rapporteur"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputZone" class="label col-sm-3 form-control-label"
+          >Zone</label
+        >
+        <div class="col-sm-9">
+          <nb-select formControlName="zone">
+            <nb-option *ngFor="let zone of zones" [value]="zone.id">{{
+              zone.label
+            }}</nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputOuverture" class="label col-sm-3 form-control-label"
+          >Ouverture/Fermeture</label
+        >
+        <div class="col-sm-9">
+          <nb-radio-group formControlName="ouverture">
+            <nb-radio [value]="true">Ouverture</nb-radio>
+            <nb-radio [value]="false">Fermeture</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputLocal" class="label col-sm-3 form-control-label"
+          >Local</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="inputLocal"
+            placeholder="Local"
+            formControlName="local"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputChantier" class="label col-sm-3 form-control-label"
+          >Chantier</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            id="inputChantier"
+            placeholder="Chantier"
+            formControlName="chantier"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputContact" class="label col-sm-3 form-control-label"
+          >Contact</label
+        >
+        <div class="col-sm-9">
+          <textarea
+            nbInput
+            fullWidth
+            placeholder="Contact"
+            formControlName="contact"
+          ></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button type="submit" nbButton status="warning" (click)="submit()">Créer</button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

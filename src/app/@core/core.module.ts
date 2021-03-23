@@ -12,12 +12,11 @@ import {
   SeoService,
   StateService,
 } from './utils';
-import { UserData } from './data/users';
-import { SmartTableData } from './data/smart-table';
-
-
-import { UserService } from './mock/users.service';
-import { SmartTableService } from './mock/smart-table.service';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ApiModule } from './api';
+import { LocalStorageService } from './services/local-storage.service';
+import { ConstatManagementService } from './services/constat-management.service';
+import { BASE_PATH } from './api';
 
 
 const socialLinks = [
@@ -37,12 +36,6 @@ const socialLinks = [
     icon: 'twitter',
   },
 ];
-
-const DATA_SERVICES = [
-  { provide: UserData, useClass: UserService },
-  { provide: SmartTableData, useClass: SmartTableService },
-];
-
 export class NbSimpleRoleProvider extends NbRoleProvider {
   getRole() {
     // here you could provide any role based on any auth flow
@@ -51,7 +44,6 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
 }
 
 export const NB_CORE_PROVIDERS = [
-  ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
 
     strategies: [
@@ -92,11 +84,15 @@ export const NB_CORE_PROVIDERS = [
   PlayerService,
   SeoService,
   StateService,
+  AuthInterceptor,
+  LocalStorageService,
+  ConstatManagementService,
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    ApiModule,
   ],
   exports: [
     NbAuthModule,

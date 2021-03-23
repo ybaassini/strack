@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-end">
+    <button nbButton status="primary" [routerLink]="['/pages/chantiers/create']" >Ajouter une chantier</button>
+</div>
+<div class="d-flex p-2">
+    <div class="p-2">
+        <button shape="round" nbButton status="primary" (click)="filter(null)">
+          Toutes les zones
+        </button>
+      </div>
+      <div class="p-2" *ngFor="let item of zones">
+        <button shape="round" nbButton status="primary" (click)="filter(item)">
+          {{ item.label }}
+          <span class="ml-2 badge badge-light">{{ item.count }}</span>
+        </button>
+      </div>
+</div>
+
+<ng2-smart-table [settings]="settings" [source]="source">
+</ng2-smart-table>

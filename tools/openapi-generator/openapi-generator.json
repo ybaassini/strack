@@ -1,0 +1,9 @@
+{
+  "sortParamsByRequiredFlag": true,
+  "ensureUniqueParams": true,
+  "modelPropertyNaming": "camelCase",
+  "supportsES6": true,
+  "useRxJS6": true,
+  "useHttpClient": true,
+  "ngVersion": "10.0.0"
+}

@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { PostesResolver } from 'app/@core/resolver';
+import { PostesResolver, RisquesResolver } from 'app/@core/resolver';
 import { ConstatComponent } from "./constat/constat.component";
 
 import { PosteComponent } from "./poste.component";
@@ -16,10 +16,16 @@ const routes: Routes = [
   {
     path: "constat",
     component: ConstatComponent,
+    resolve: {
+      risques: RisquesResolver,
+    }
   },
   {
     path: "constat/:constatId",
     component: ConstatComponent,
+    resolve: {
+      risques: RisquesResolver,
+    }
   },
 ];
 

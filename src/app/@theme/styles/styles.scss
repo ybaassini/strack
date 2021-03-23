@@ -30,3 +30,7 @@
 
   @include nb-overrides();
 };
+
+body {
+  font-family: 'Noto Sans JP', sans-serif !important;
+}

@@ -1,35 +1,35 @@
 <div class="row">
   <div class="col-md-6">
-    <ngx-status-card [title]="'Fiche de Liaison'" [type]="'primary'">
+    <ngx-status-card [title]="'Point sur larret'" [type]="'primary'">
       1
     </ngx-status-card>
   </div>
   <div class="col-md-6">
-    <ngx-status-card [title]="'Consignes RZ'" [type]="'primary'">
-      1
+    <ngx-status-card [title]="'Consignes'" [type]="'success'">
+      {{consignesInProgress.length}}
     </ngx-status-card>
   </div>
   <div class="col-md-6">
-    <ngx-status-card [title]="'Constat en cours'" [type]="'primary'">
+    <ngx-status-card [title]="'Constat en cours'" [type]="'info'">
       {{constatsInProgress.length}}
     </ngx-status-card>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-6">
+    <ngx-status-card [title]="'Point Materiel'" [type]="'warning'">
+      {{materielsInProgress.length}}
+    </ngx-status-card>
+  </div>
+  <div class="col-md-12" *ngIf="constatsMarquant.length > 0">
     <nb-card>
       <nb-card-header><h5>Faits Marquant</h5></nb-card-header>
       <nb-card-body class="p-0">
         <nb-list>
-          <nb-list-item *ngFor="let constat of constats">
+          <nb-list-item *ngFor="let constat of constatsMarquant">
             <div class="col-md-3">
               {{constat.date | date:'mediumDate'}}     
             </div>
             <div class="col-md-7">
               {{constat.description}}     
-            </div>
-            <div class="col-md-2">
-              <button nbButton status="primary" [routerLink]="['/poste/constat', constat.id]" >
-                 Détails
-              </button>
             </div>
           </nb-list-item>
         </nb-list>

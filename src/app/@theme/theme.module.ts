@@ -12,6 +12,8 @@ import {
   NbSelectModule,
   NbIconModule,
   NbThemeModule,
+  NbToggleModule,
+  NbBadgeModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -21,6 +23,7 @@ import {
   HeaderComponent,
   SearchInputComponent,
   TinyMCEComponent,
+  ToggleFieldComponent,
 } from './components';
 import {
   CapitalizePipe,
@@ -52,6 +55,8 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
+  NbToggleModule,
+  NbBadgeModule
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -61,6 +66,7 @@ const COMPONENTS = [
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+  ToggleFieldComponent,
 ];
 const PIPES = [
   CapitalizePipe,

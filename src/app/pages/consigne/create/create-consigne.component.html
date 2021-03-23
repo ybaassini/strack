@@ -1,0 +1,69 @@
+<nb-card>
+  <nb-card-header>Créer une consigne</nb-card-header>
+  <nb-card-body>
+    <form class="form-horizontal" [formGroup]="form">
+      <div class="form-group row">
+        <label for="inputDate" class="label col-sm-3 form-control-label"
+          >Date</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            disabled
+            id="inputDate"
+            placeholder="Date"
+            formControlName="date"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputRapporteur" class="label col-sm-3 form-control-label"
+          >Rapporteur</label
+        >
+        <div class="col-sm-9">
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            disabled
+            id="inputRapporteur"
+            placeholder="Rapporteur"
+            formControlName="rapporteur"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputZone" class="label col-sm-3 form-control-label"
+          >Zone</label
+        >
+        <div class="col-sm-9">
+          <nb-select formControlName="zone">
+            <nb-option *ngFor="let zone of zones" [value]="zone.id">{{
+              zone.label
+            }}</nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputMessage" class="label col-sm-3 form-control-label"
+          >Intitulé de la consigne</label
+        >
+        <div class="col-sm-9">
+          <textarea
+            nbInput
+            fullWidth
+            placeholder="Message"
+            formControlName="description"
+          ></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button type="submit" nbButton status="warning" (click)="submit()">Créer</button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
