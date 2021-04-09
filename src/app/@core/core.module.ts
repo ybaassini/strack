@@ -17,6 +17,7 @@ import { ApiModule } from './api';
 import { LocalStorageService } from './services/local-storage.service';
 import { ConstatManagementService } from './services/constat-management.service';
 import { BASE_PATH } from './api';
+import { environment } from 'environments/environment';
 
 
 const socialLinks = [
@@ -98,6 +99,9 @@ export const NB_CORE_PROVIDERS = [
     NbAuthModule,
   ],
   declarations: [],
+  providers: [
+    { provide: BASE_PATH, useValue: environment.api.uri },
+  ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

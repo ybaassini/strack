@@ -5,6 +5,7 @@ import {
   NbAuthService,
   NbLoginComponent,
 } from "@nebular/auth";
+import { DefaultService } from "app/@core/api";
 import { AuthService } from "app/@core/services/auth.service";
 import { defaultSettings } from "../../settings.const";
 
@@ -17,7 +18,9 @@ export class LoginComponent extends NbLoginComponent {
     public service: NbAuthService,
     public cd: ChangeDetectorRef,
     public router: Router,
-    public authService: AuthService
+    public authService: AuthService,
+    public loginService: DefaultService
+    
   ) {
     super(service, defaultSettings, cd, router);
   }
@@ -25,7 +28,7 @@ export class LoginComponent extends NbLoginComponent {
   public ngOnInit() {}
 
   public login() {
-    this.authService.login(this.user).subscribe(
+    this.loginService.login(this.user).subscribe(
       (res: any) => {
         this.authService.setLocalStorage(res);
         this.authService.saveUser(res.data.user);

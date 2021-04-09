@@ -5,4 +5,7 @@
  */
 export const environment = {
   production: true,
+  api: {
+    uri: 'https://kellaweb-epr.herokuapp.com',
+  }
 };
