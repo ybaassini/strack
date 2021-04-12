@@ -21,4 +21,6 @@ export class CreatePdfDto {
   readonly numero: string;
   @ApiProperty()
   readonly conforme: boolean;
+  @ApiProperty()
+  readonly poste: string;
 }

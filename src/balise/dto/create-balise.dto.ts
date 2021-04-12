@@ -1,5 +1,4 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { PosteDto } from "poste/dto/poste.dto";
 
 export class CreateBaliseDto {
   @ApiProperty()

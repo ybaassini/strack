@@ -22,7 +22,7 @@ export class BaliseService {
   async find(query: {} = {}): Promise<Balise[]> {
     return await this.baliseModel
     .find(query)
-    .populate('projet')
+    .populate('poste')
     .exec();
   }
 

@@ -24,6 +24,7 @@ export class Di82Service {
       .find(query)
       .populate("zone")
       .populate("projet")
+      .populate("poste")
       .exec();
   }
 
@@ -37,6 +38,7 @@ export class Di82Service {
     document = await document
       .populate("projet")
       .populate("zone")
+      .populate("poste")
       .execPopulate();
     return document;
   }

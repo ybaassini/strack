@@ -19,6 +19,9 @@ import { PosteDto } from './dto/poste.dto';
 import { CreatePosteDto } from './dto/create-poste.dto';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { RequestCreateConstatDto } from './dto/request-create-constat.dto';
+import { MaterielService } from '../materiel/materiel.service';
+import { BaliseService } from '../balise/balise.service';
+import { ObjectId } from 'mongodb';
 
 @ApiTags('Poste')
 @Controller('api/postes')
@@ -27,7 +30,9 @@ import { RequestCreateConstatDto } from './dto/request-create-constat.dto';
 @UseInterceptors(LoggingInterceptor, TransformInterceptor)
 export class PosteController {
   constructor(
-    private readonly posteService: PosteService) {}
+    private readonly posteService: PosteService,
+    private readonly materielService: MaterielService,
+    private readonly baliseService: BaliseService) {}
 
   @Get('')
   // @UseGuards(RolesGuard)
@@ -47,7 +52,7 @@ export class PosteController {
   // @Roles('User')
   async getPoste(@Param('id') id: string): Promise<IResponse | PosteDto> {
     try {
-      const poste = await this.posteService.findOne({id: +id});
+      const poste = await this.posteService.findOne({_id: id});
       return new PosteDto(poste);
     } catch (error) {
       return new ResponseError('COMMON.ERROR.GENERIC_ERROR', error);
@@ -73,7 +78,8 @@ export class PosteController {
   async createPoste(@Body() poste: CreatePosteDto): Promise<IResponse | PosteDto> {
     try {
       const document = await this.posteService.create(poste);
-      // await this.baliseService.initBalisePoste(document.id);
+      await this.baliseService.initBalisePoste(document._id.toHexString());
+      await this.materielService.initMaterielPoste(document._id.toHexString());
       return new PosteDto(document);
     } catch (error) {
       return new ResponseError('PROFILE.CREATE_ERROR', error);

@@ -7,6 +7,11 @@ export interface Materiel extends Document {
   status: string;
   projet: mongoose.Types.ObjectId;
   zone: mongoose.Types.ObjectId;
-  description: string;
   type: string;
+  code: string;
+  numero: string;
+  point: string;
+  diagnostic: string;
+  actions: string;
+  poste: mongoose.Types.ObjectId;
 }

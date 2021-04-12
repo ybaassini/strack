@@ -6,6 +6,7 @@ import * as _ from "lodash";
 import { Materiel } from "./interfaces/materiel.interface";
 import { MaterielDto } from "./dto/materiel.dto";
 import { isTypedArray } from "lodash";
+import { MATERIELS } from "common/data/materiel.data";
 
 const saltRounds = 10;
 
@@ -24,6 +25,7 @@ export class MaterielService {
       .find(query)
       .populate("zone")
       .populate("projet")
+      .populate("poste")
       .exec();
   }
 
@@ -37,41 +39,25 @@ export class MaterielService {
     document = await document
       .populate("projet")
       .populate("zone")
+      .populate("poste")
       .execPopulate();
     return document;
   }
 
   async update(newMateriel: MaterielDto): Promise<Materiel> {
-    const newMaterielDocument = await this.materielModel.updateOne(
+    const newMaterielDocument = await this.materielModel.findOneAndUpdate(
       { id: newMateriel.id },
-      new this.materielModel(newMateriel)
+      new this.materielModel(newMateriel),
     );
 
     return newMaterielDocument;
   }
 
-  async createConstat(materielId: number, constat): Promise<Materiel> {
-    return await this.materielModel
-      .findOneAndUpdate(
-        { _id: materielId },
-        { $push: { constats: constat } },
-        { new: true }
-      )
-      .exec();
-  }
-
-  async updateConstat(materielId: number, constat): Promise<Materiel> {
-    await this.materielModel.updateOne(
-      { _id: materielId },
-      { $pull: { constats: { _id: constat.id } } }
-    );
-    return await this.materielModel
-      .findOneAndUpdate(
-        { _id: materielId },
-        { $push: { constats: constat } },
-        { new: true }
-      )
-      .exec();
+  async initMaterielPoste(posteId: number) {
+    MATERIELS.forEach(async materiel => {
+      const materielToSave = {...materiel, poste: `${posteId}`} as CreateMaterielDto;
+      await this.create(materielToSave);
+    });
   }
 
   protected deserialize(document: Materiel[]): MaterielDto[];

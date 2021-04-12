@@ -9,6 +9,7 @@ import { BaliseSchema } from './schemas/balise.schema';
   imports: [MongooseModule.forFeature([{ name: 'Balise', schema: BaliseSchema }])],
   controllers: [BaliseController],
   providers: [BaliseService],
+  exports: [BaliseService],
 })
 export class BaliseModule implements NestModule {
   public configure(consumer: MiddlewareConsumer) {

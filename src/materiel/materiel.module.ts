@@ -9,6 +9,7 @@ import { MaterielSchema } from './schemas/materiel.schema';
   imports: [MongooseModule.forFeature([{ name: 'Materiels', schema: MaterielSchema }])],
   controllers: [MaterielController],
   providers: [MaterielService],
+  exports: [MaterielService]
 })
 export class MaterielModule implements NestModule {
   public configure(consumer: MiddlewareConsumer) {

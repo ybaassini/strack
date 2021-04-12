@@ -18,6 +18,8 @@ export class CreateDi82Dto {
   @ApiProperty()
   readonly zone: string;
   @ApiProperty()
+  readonly poste: string;
+  @ApiProperty()
   readonly numero: string;
   @ApiProperty()
   readonly conforme: boolean;

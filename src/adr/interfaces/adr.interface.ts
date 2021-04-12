@@ -11,4 +11,5 @@ export interface Adr extends Document {
   conforme: boolean;
   local: string;
   intitule: string;
+  poste: mongoose.Types.ObjectId;
 }

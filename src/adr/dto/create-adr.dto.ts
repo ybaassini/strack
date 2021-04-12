@@ -25,4 +25,6 @@ export class CreateAdrDto {
   readonly local: string;
   @ApiProperty()
   readonly contact: string;
+  @ApiProperty()
+  readonly poste: string;
 }

@@ -17,6 +17,7 @@ import { ChantierModule } from "ouv-ferm-chantier/chantier.module";
 import { PlancherModule } from "ouv-ferm-plancher/plancher.module";
 import { PdfModule } from "pdf/pdf.module";
 import { AdrModule } from "adr/adr.module";
+import { BaliseModule } from "balise/balise.module";
 
 const userString =
   config.db.user && config.db.pass
@@ -29,6 +30,8 @@ const authSource = config.db.authSource
 @Module({
   imports: [
     MongooseModule.forRoot(config.db.host, { useNewUrlParser: true }),
+    MaterielModule,
+    BaliseModule,
     UsersModule,
     PosteModule,
     ProjetModule,
@@ -38,7 +41,6 @@ const authSource = config.db.authSource
     ConsigneModule,
     AppuiConseilModule,
     Di82Module,
-    MaterielModule,
     ChantierModule,
     PlancherModule,
     PdfModule,

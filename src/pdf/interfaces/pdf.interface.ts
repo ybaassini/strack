@@ -10,4 +10,5 @@ export interface Pdf extends Document {
   commentaire: string;
   conforme: boolean;
   numero: string;
+  poste: mongoose.Types.ObjectId;
 }

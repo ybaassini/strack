@@ -10,4 +10,5 @@ export interface Di82 extends Document {
   commentaire: string;
   conforme: boolean;
   numero: string;
+  poste: mongoose.Types.ObjectId;
 }

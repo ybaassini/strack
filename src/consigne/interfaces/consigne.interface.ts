@@ -8,4 +8,5 @@ export interface Consigne extends Document {
   projet: mongoose.Types.ObjectId;
   zone: mongoose.Types.ObjectId;
   description: string;
+  poste: mongoose.Types.ObjectId;
 }

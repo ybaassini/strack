@@ -24,6 +24,7 @@ export class PlancherService {
       .find(query)
       .populate("zone")
       .populate("projet")
+      .populate("poste")
       .exec();
   }
 
@@ -37,6 +38,7 @@ export class PlancherService {
     document = await document
       .populate("projet")
       .populate("zone")
+      .populate("poste")
       .execPopulate();
     return document;
   }

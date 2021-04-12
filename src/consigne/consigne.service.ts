@@ -24,6 +24,7 @@ export class ConsigneService {
       .find(query)
       .populate("zone")
       .populate("projet")
+      .populate("poste")
       .exec();
   }
 
@@ -37,6 +38,7 @@ export class ConsigneService {
     document = await document
       .populate("projet")
       .populate("zone")
+      .populate("poste")
       .execPopulate();
     return document;
   }

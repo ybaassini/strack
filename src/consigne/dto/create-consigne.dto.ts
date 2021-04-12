@@ -17,4 +17,6 @@ export class CreateConsigneDto {
   readonly projet: string;
   @ApiProperty()
   readonly zone: string;
+  @ApiProperty()
+  readonly poste: string;
 }

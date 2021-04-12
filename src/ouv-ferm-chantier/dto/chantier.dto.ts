@@ -2,6 +2,7 @@ import { StatusEnum } from "../../common/enum";
 import { ProjetDto } from "../../projet/dto/projet.dto";
 import { ZoneDto } from "../../zone/dto/zone.dto";
 import { ApiProperty } from "@nestjs/swagger";
+import { PosteDto } from "poste/dto/poste.dto";
 
 export class ChantierDto {
   constructor(object: any) {
@@ -20,6 +21,7 @@ export class ChantierDto {
     this.numero = object.numero;
     this.projet = new ProjetDto(object.projet);
     this.zone = new ZoneDto(object.zone);
+    this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
   readonly id: number;
@@ -49,4 +51,6 @@ export class ChantierDto {
   readonly zone: ZoneDto;
   @ApiProperty()
   readonly ouverture: boolean;
+  @ApiProperty()
+  readonly poste: PosteDto;
 }

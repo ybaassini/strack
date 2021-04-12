@@ -21,4 +21,6 @@ export class CreateAppuiConseilDto {
   readonly chantier: string;
   @ApiProperty()
   readonly local: string;
+  @ApiProperty()
+  readonly poste: string;
 }
