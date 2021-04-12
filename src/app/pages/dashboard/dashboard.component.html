@@ -5,17 +5,17 @@
     </ngx-status-card>
   </div>
   <div class="col-md-6">
-    <ngx-status-card [title]="'Consignes'" [type]="'success'">
+    <ngx-status-card [title]="'Consignes'" link="/pages/consignes-en-cours" [type]="'success'">
       {{consignesInProgress.length}}
     </ngx-status-card>
   </div>
   <div class="col-md-6">
-    <ngx-status-card [title]="'Constat en cours'" [type]="'info'">
+    <ngx-status-card [title]="'Constat en cours'" link="/pages/constats-en-cours" [type]="'info'">
       {{constatsInProgress.length}}
     </ngx-status-card>
   </div>
   <div class="col-md-6">
-    <ngx-status-card [title]="'Point Materiel'" [type]="'warning'">
+    <ngx-status-card [title]="'Point Materiel'" link="/pages/point-materiel-en-cours" [type]="'warning'">
       {{materielsInProgress.length}}
     </ngx-status-card>
   </div>

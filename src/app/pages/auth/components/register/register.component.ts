@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { NbAuthService, NbRegisterComponent } from "@nebular/auth";
+import { DefaultService } from "app/@core/api";
 import { AuthService } from "app/@core/services/auth.service";
 import { defaultSettings } from "../../settings.const";
 
@@ -15,13 +16,14 @@ export class RegisterComponent extends NbRegisterComponent {
     public service: NbAuthService,
     public cd: ChangeDetectorRef,
     public router: Router,
-    public authService: AuthService
+    public authService: AuthService,
+    public defaultService: DefaultService,
   ) {
     super(service, defaultSettings, cd, router);
   }
 
   public register() {
-    this.authService.register(this.user).subscribe(
+    this.defaultService.register(this.user).subscribe(
       (res) => {
         this.authService.setLocalStorage(res);
       },

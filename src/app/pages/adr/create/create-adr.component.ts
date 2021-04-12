@@ -37,6 +37,7 @@ export class AdrCreateComponent implements OnInit {
         local: "",
         conforme: false,
         commentaire: "",
+        poste: this.localStorageService.getItem('poste').id,
       },
       {
         validators: commentaireAjouterSiControleConnu(),

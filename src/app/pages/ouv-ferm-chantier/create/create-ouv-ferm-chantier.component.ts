@@ -33,6 +33,7 @@ export class ChantierCreateComponent implements OnInit {
       chantier: '',
       ouverture: true,
       contact: '',
+      poste: this.localStorageService.getItem('poste').id,
     });
   }
 

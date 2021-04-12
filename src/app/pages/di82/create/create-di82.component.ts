@@ -35,6 +35,7 @@ export class Di82CreateComponent implements OnInit {
         numero: ["", Validators.required],
         commentaire: "",
         conforme: false,
+        poste: this.localStorageService.getItem('poste').id,
       },
       {
         validators: commentaireAjouterSiControleConnu(),

@@ -148,13 +148,20 @@ export class ChantierService {
     /**
      * 
      * 
+     * @param poste 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getChantiers(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getChantiers(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getChantiers(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getChantiers(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getChantiers(poste?: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getChantiers(poste?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getChantiers(poste?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getChantiers(poste?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (poste !== undefined && poste !== null) {
+            queryParameters = queryParameters.set('poste', <any>poste);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -172,6 +179,7 @@ export class ChantierService {
 
         return this.httpClient.get<any>(`${this.basePath}/api/chantiers`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

@@ -15,7 +15,7 @@ const routes: Routes = [{
       component: BaliseComponent,
     },
     {
-      path: 'kr',
+      path: 'krt',
       component: KRTComponent,
     },
     {

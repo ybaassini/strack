@@ -148,13 +148,20 @@ export class PdfService {
     /**
      * 
      * 
+     * @param poste 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getPdfs(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getPdfs(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getPdfs(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getPdfs(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getPdfs(poste?: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getPdfs(poste?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getPdfs(poste?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getPdfs(poste?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (poste !== undefined && poste !== null) {
+            queryParameters = queryParameters.set('poste', <any>poste);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -172,6 +179,7 @@ export class PdfService {
 
         return this.httpClient.get<any>(`${this.basePath}/api/pdfs`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

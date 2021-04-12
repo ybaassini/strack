@@ -1,11 +1,13 @@
 <nb-card>
-  <nb-card-header>
-    Relevés du Poste précédent
-  </nb-card-header>
-
-  <nb-card-body>
-    <div class="h6 p-3 m-0 text-center title">RELEVÉ JOURNALIER DES CHAINES KRT</div>
-    <ng2-smart-table [settings]="previous.globale" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-    </ng2-smart-table>
-  </nb-card-body>
-</nb-card>
+  <nb-tabset>
+    <nb-tab tabTitle="Relevés du Poste en Cours">
+      <div class="h6 p-3 m-0 text-center title">RELEVÉ JOURNALIER DES CHAINES KRT</div>
+      <ng2-smart-table [settings]="previous.globale" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-tab>
+    <nb-tab tabTitle="Relevés du Poste précédent">
+      <div class="h6 p-3 m-0 text-center title">RELEVÉ JOURNALIER DES CHAINES KRT</div>
+      <ng2-smart-table [settings]="previous.globale" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-tab>
+  </nb-tabset>

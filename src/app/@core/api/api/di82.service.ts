@@ -148,13 +148,20 @@ export class Di82Service {
     /**
      * 
      * 
+     * @param poste 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getDi82s(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getDi82s(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getDi82s(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getDi82s(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getDi82s(poste?: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getDi82s(poste?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getDi82s(poste?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getDi82s(poste?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (poste !== undefined && poste !== null) {
+            queryParameters = queryParameters.set('poste', <any>poste);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -172,6 +179,7 @@ export class Di82Service {
 
         return this.httpClient.get<any>(`${this.basePath}/api/di82s`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

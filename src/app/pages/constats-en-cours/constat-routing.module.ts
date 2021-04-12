@@ -18,7 +18,7 @@ const routes: Routes = [
         path: "read",
         component: ConstatEnCoursReadComponent,
         resolve: {
-          constats: PostesResolver,
+          postes: PostesResolver,
         },
       },
     ],

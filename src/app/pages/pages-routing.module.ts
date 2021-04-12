@@ -67,6 +67,11 @@ const routes: Routes = [{
         .then(m => m.PdfModule),
     },
     {
+      path: 'releves',
+      loadChildren: () => import('./releves/releves.module')
+        .then(m => m.RelevesModule),
+    },
+    {
       path: 'indicateur',
       loadChildren: () => import('./charts/charts.module')
         .then(m => m.ChartsModule),
@@ -78,8 +83,23 @@ const routes: Routes = [{
     },
     {
       path: 'constats-en-cours',
-      loadChildren: () => import('./consigne-en-cours/consigne.module')
-        .then(m => m.ConsigneEnCoursModule),
+      loadChildren: () => import('./constats-en-cours/constat-en-cours.module')
+        .then(m => m.ConstatsEnCoursModule),
+    },
+    {
+      path: 'point-materiel-en-cours',
+      loadChildren: () => import('./materiel-en-cours/materiel-en-cours.module')
+        .then(m => m.MaterielEnCoursModule),
+    },
+    {
+      path: 'rapport',
+      loadChildren: () => import('./rapport/rapport.module')
+        .then(m => m.RapportModule),
+    },
+    {
+      path: 'materiels',
+      loadChildren: () => import('./materiel/materiel.module')
+        .then(m => m.MaterielModule),
     },
     {
       path: '',

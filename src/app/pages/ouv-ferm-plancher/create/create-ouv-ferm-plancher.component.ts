@@ -30,6 +30,7 @@ export class PlancherCreateComponent implements OnInit {
       ouverture: true,
       conforme: true,
       commentaire: [''],
+      poste: this.localStorageService.getItem('poste').id,
     }, {
       validators: commentaireAjouterSiControleConnu(),
     });

@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { PosteService } from "app/@core/api";
 import { CHANTIERAENJEU } from "app/@core/constants/chantier.const";
 import { LocalStorageService } from "app/@core/services/local-storage.service";
+import { format } from "date-fns";
 
 @Component({
   selector: "ngx-constat",
@@ -83,10 +84,10 @@ export class ConstatComponent implements OnInit {
   }
 
   public save() {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      return;
-    }
+    // if (this.form.invalid) {
+    //   this.form.markAllAsTouched();
+    //   return;
+    // }
     this.posteService
       .createConstat({posteId: this.poste.id, constat: this.form.value} as any)
       .subscribe((res: any) => {

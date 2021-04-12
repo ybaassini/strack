@@ -15,8 +15,8 @@ import { Component, Input } from "@angular/core";
         <div class="title h5">{{title}}</div>
       </div>
 
-      <div class="actions pr-2">
-        <button nbButton status="primary">
+      <div class="actions pr-2" routerLink="{{link}}">
+        <button nbButton status="primary" >
           Voir
         </button>
       </div>
@@ -26,5 +26,6 @@ import { Component, Input } from "@angular/core";
 export class StatusCardComponent {
   @Input() title: string;
   @Input() type: string;
+  @Input() link: string = '/dashboard';
   @Input() on = true;
 }

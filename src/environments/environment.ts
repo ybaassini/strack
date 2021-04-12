@@ -11,6 +11,7 @@
 export const environment = {
   production: false,
   api: {
-    uri: 'https://kellaweb-epr.herokuapp.com',
-  }
+    // uri: 'https://kellaweb-epr.herokuapp.com',
+    uri: 'http://localhost:3000',
+  },
 };

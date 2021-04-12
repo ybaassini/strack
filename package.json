@@ -47,6 +47,7 @@
     "@capacitor/core": "^2.4.5",
     "@capacitor/ios": "^2.4.5",
     "@nebular/auth": "^6.0.0",
+    "@nebular/date-fns": "^5.0.0",
     "@nebular/eva-icons": "^6.0.0",
     "@nebular/security": "^6.0.0",
     "@nebular/theme": "^6.2.1",

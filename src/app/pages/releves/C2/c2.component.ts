@@ -24,13 +24,13 @@ export class C2Component {
       actions: {
         delete: false,
         add: false,
-        edit: false
+        edit: false,
       },
       columns: {
         chaine: {
           title: 'Chaînes',
           type: 'string',
-          editable: false
+          editable: false,
         },
         local: {
           title: 'Local',

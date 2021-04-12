@@ -36,6 +36,7 @@ export class PdfCreateComponent implements OnInit {
         numero: ["", Validators.required],
         commentaire: ["", Validators.required],
         conforme: false,
+        poste: this.localStorageService.getItem('poste').id,
       },
       {
         validators: commentaireAjouterSiControleConnu,

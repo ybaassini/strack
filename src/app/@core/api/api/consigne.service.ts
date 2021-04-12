@@ -149,13 +149,20 @@ export class ConsigneService {
     /**
      * 
      * 
+     * @param poste 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getConsignes(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getConsignes(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getConsignes(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getConsignes(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getConsignes(poste?: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getConsignes(poste?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getConsignes(poste?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getConsignes(poste?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (poste !== undefined && poste !== null) {
+            queryParameters = queryParameters.set('poste', <any>poste);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -173,6 +180,7 @@ export class ConsigneService {
 
         return this.httpClient.get<any>(`${this.basePath}/api/consignes`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

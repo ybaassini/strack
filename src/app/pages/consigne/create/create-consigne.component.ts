@@ -30,6 +30,7 @@ export class ConsigneCreateComponent implements OnInit {
       zone: this.localStorageService.getItem('poste').zone.id,
       projet: this.localStorageService.getItem('poste').projet.id,
       description: '',
+      poste: this.localStorageService.getItem('poste').id,
     });
   }
 

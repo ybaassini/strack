@@ -148,13 +148,20 @@ export class AppuiConseilService {
     /**
      * 
      * 
+     * @param poste 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAppuiConseils(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getAppuiConseils(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getAppuiConseils(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getAppuiConseils(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getAppuiConseils(poste?: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getAppuiConseils(poste?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getAppuiConseils(poste?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getAppuiConseils(poste?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (poste !== undefined && poste !== null) {
+            queryParameters = queryParameters.set('poste', <any>poste);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -172,6 +179,7 @@ export class AppuiConseilService {
 
         return this.httpClient.get<any>(`${this.basePath}/api/appui-conseils`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

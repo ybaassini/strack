@@ -1,7 +1,7 @@
 import { DatePipe } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { PosteService } from "app/@core/api";
+import { PosteDto, PosteService } from "app/@core/api";
 import { ConstatDto } from "app/@core/api/model/constatDto";
 import { LocalStorageService } from "app/@core/services/local-storage.service";
 import { ToggleFieldComponent } from "../../../@theme/components";
@@ -38,6 +38,11 @@ export class ConstatEnCoursReadComponent implements OnInit {
           return datePipe.transform(data, "dd/MM/yyyy");
         },
       },
+      description: {
+        title: "Description",
+        type: "string",
+        editable: false,
+      },
       type: {
         title: "Type",
         type: "string",
@@ -54,9 +59,10 @@ export class ConstatEnCoursReadComponent implements OnInit {
     },
   };
   public source = [];
-  public postes = [];
+  public postes: PosteDto[] = [];
   public zones = [];
   public data = [];
+  public constatsInProgress: ConstatDto[] = [];
 
   constructor(
     private posteService: PosteService,
@@ -67,18 +73,30 @@ export class ConstatEnCoursReadComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe((res) => {
       this.postes = res.postes.data;
-      this.data = this.source = res.postes.data.map(poste => poste.constats.filter(constat => !constat.finished));
-      this.setZones();
+      this.initConstats(this.postes);
+      this.source = this.constatsInProgress;
+    });
+  }
+
+  public initConstats(postes) {
+    postes.forEach(poste => {
+      poste.constats.forEach(constat => {
+        if (!constat.finished) {
+          this.constatsInProgress.push(constat);
+        }
+      });
     });
   }
 
   /**
    * solder
    */
-  public solder(constat: ConstatDto) {
-    const poste = this.postes.find(poste => poste.constats.find(constat => constat.id))[0];
+  public solder(selectedConstat: ConstatDto) {
+    const poste = this.postes.find(poste => {
+      return poste.constats.includes(selectedConstat);
+    });
     const newConstat = {
-      ...constat,
+      ...selectedConstat,
       finished: true,
     };
     this.posteService.updateConstat({posteId: poste.id, constat: newConstat} as any).subscribe((res) => {
@@ -86,36 +104,4 @@ export class ConstatEnCoursReadComponent implements OnInit {
     });
   }
 
-  /**
-   * setZones
-   */
-  public setZones() {
-    this.source.forEach((item) => {
-      const index = this.zones.findIndex(
-        (zone) => zone.label === item.zone.label
-      );
-      if (index > -1) {
-        this.zones[index] = {
-          ...this.zones[index],
-          count: ++this.zones[index].count,
-        };
-      } else {
-        this.zones.push({
-          label: item.zone.label,
-          count: 1,
-        });
-      }
-    });
-  }
-
-  /**
-   * filter
-   */
-  public filter(param) {
-    if (param === null) {
-      this.source = this.data;
-    } else {
-      this.source = this.data.filter((item) => item.zone.label === param.label);
-    }
-  }
 }

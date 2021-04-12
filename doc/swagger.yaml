@@ -1231,7 +1231,11 @@ paths:
   /api/consignes:
     get:
       operationId: getConsignes
-      parameters: []
+      parameters: 
+        - name: poste
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: ''
@@ -1291,7 +1295,11 @@ paths:
   /api/appui-conseils:
     get:
       operationId: getAppuiConseils
-      parameters: []
+      parameters: 
+        - name: poste
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: ''
@@ -1342,7 +1350,11 @@ paths:
   /api/di82s:
     get:
       operationId: getDi82s
-      parameters: []
+      parameters: 
+        - name: poste
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: ''
@@ -1393,7 +1405,11 @@ paths:
   /api/materiels:
     get:
       operationId: getMateriels
-      parameters: []
+      parameters: 
+        - name: poste
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: ''
@@ -1444,7 +1460,11 @@ paths:
   /api/chantiers:
     get:
       operationId: getChantiers
-      parameters: []
+      parameters:
+        - name: poste
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: ''
@@ -1495,7 +1515,11 @@ paths:
   /api/planchers:
     get:
       operationId: getPlanchers
-      parameters: []
+      parameters: 
+        - name: poste
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: ''
@@ -1546,7 +1570,11 @@ paths:
   /api/pdfs:
     get:
       operationId: getPdfs
-      parameters: []
+      parameters:
+        - name: poste
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: ''
@@ -1597,7 +1625,11 @@ paths:
   /api/adrs:
     get:
       operationId: getAdrs
-      parameters: []
+      parameters: 
+        - name: poste
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: ''

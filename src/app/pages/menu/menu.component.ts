@@ -22,7 +22,7 @@ export class MenuComponent {
       link: '/pages/poste',
     },
     {
-      title: 'Appui/Conseil Facilitation',
+      title: 'Appui/Conseil',
       icon: 'edit-outline',
       link: '/pages/appui-conseils',
     },
@@ -56,9 +56,9 @@ export class MenuComponent {
       link: '/pages/di82s',
     },
     {
-      title: 'Evenements',
+      title: 'Documents',
       icon: 'edit-outline',
-      link: '/pages/poste',
+      link: '/pages/documents',
     },
     {
       title: 'Cartographies',
@@ -71,34 +71,39 @@ export class MenuComponent {
     },
     {
       title: 'Point Materiel',
-      icon: 'edit-outline',
+      icon: 'scissors-outline',
       link: '/pages/materiels',
     },
     {
       title: 'Relevés Chaines KRT',
-      icon: 'edit-outline',
+      icon: 'bulb-outline',
       link: '/pages/releves/krt'
     },
     {
       title: 'Relevés Balises',
-      icon: 'edit-outline',
+      icon: 'bulb-outline',
       link: '/pages/releves/balise',
     },
     {
-      title: 'Relevés C2',
-      icon: 'edit-outline',
-      link: '/pages/releves/c2',
-    },
-    {
       title: 'Consignes',
-      icon: 'edit-outline',
+      icon: 'list-outline',
       link: '/pages/consignes',
     },
-  ]
+    {
+      title: 'Finir le poste',
+      icon: 'checkmark-outline',
+      link: '/pages/rapport',
+    },
+    {
+      title: 'Dashboard',
+      icon: 'edit-outline',
+      link: '/pages/dashboard',
+    },
+  ];
 
   constructor(
     private themeService: NbThemeService,
-    public activatedRoute: ActivatedRoute
+    public activatedRoute: ActivatedRoute,
   ) {
   }
 

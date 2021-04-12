@@ -148,13 +148,20 @@ export class AdrService {
     /**
      * 
      * 
+     * @param poste 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAdrs(observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public getAdrs(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public getAdrs(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public getAdrs(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getAdrs(poste?: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public getAdrs(poste?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public getAdrs(poste?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public getAdrs(poste?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (poste !== undefined && poste !== null) {
+            queryParameters = queryParameters.set('poste', <any>poste);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -172,6 +179,7 @@ export class AdrService {
 
         return this.httpClient.get<any>(`${this.basePath}/api/adrs`,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
