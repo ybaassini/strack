@@ -22,8 +22,6 @@ export class AppuiConseilService {
   async find(query: {} = {}): Promise<AppuiConseil[]> {
     return await this.appuiConseilModel
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate("poste")
       .exec();
   }
@@ -36,8 +34,6 @@ export class AppuiConseilService {
     const doc = new this.appuiConseilModel(appuiConseil);
     let document = await this.appuiConseilModel.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .populate("poste")
       .execPopulate();
     return document;

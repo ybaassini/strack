@@ -16,8 +16,6 @@ export class AdrDto {
     this.commentaire = object.commentaire;
     this.local = object.local;
     this.intitule = object.intitule;
-    this.projet = new ProjetDto(object.projet);
-    this.zone = new ZoneDto(object.zone);
     this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
@@ -40,10 +38,6 @@ export class AdrDto {
   readonly intitule: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly projet: ProjetDto;
-  @ApiProperty()
-  readonly zone: ZoneDto;
   @ApiProperty()
   readonly poste: PosteDto;
 }

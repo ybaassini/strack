@@ -22,8 +22,6 @@ export class ChantierService {
   async find(query: {} = {}): Promise<Chantier[]> {
     return await this.chantierModel
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate("poste")
       .exec();
   }
@@ -36,8 +34,6 @@ export class ChantierService {
     const doc = new this.chantierModel(chantier);
     let document = await this.chantierModel.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .populate("poste")
       .execPopulate();
     return document;

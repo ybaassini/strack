@@ -22,8 +22,6 @@ export class ConsigneService {
   async find(query: {} = {}): Promise<Consigne[]> {
     return await this.consigneModel
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate("poste")
       .exec();
   }
@@ -36,8 +34,6 @@ export class ConsigneService {
     const doc = new this.consigneModel(consigne);
     let document = await this.consigneModel.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .populate("poste")
       .execPopulate();
     return document;

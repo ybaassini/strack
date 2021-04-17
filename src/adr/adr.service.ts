@@ -22,8 +22,6 @@ export class AdrService {
   async find(query: {} = {}): Promise<Adr[]> {
     return await this.adrModel
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate("poste")
       .exec();
   }
@@ -36,8 +34,6 @@ export class AdrService {
     const doc = new this.adrModel(adr);
     let document = await this.adrModel.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .populate("poste")
       .execPopulate();
     return document;

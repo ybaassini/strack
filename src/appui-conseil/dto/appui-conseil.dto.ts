@@ -15,8 +15,6 @@ export class AppuiConseilDto {
     this.commentaire = object.commentaire;
     this.local = object.local;
     this.chantier = object.chantier;
-    this.projet = new ProjetDto(object.projet);
-    this.zone = new ZoneDto(object.zone);
     this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
@@ -35,10 +33,6 @@ export class AppuiConseilDto {
   readonly local: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly projet: ProjetDto;
-  @ApiProperty()
-  readonly zone: ZoneDto;
   @ApiProperty()
   readonly poste: PosteDto;
 }

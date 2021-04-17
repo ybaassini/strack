@@ -13,8 +13,6 @@ export class ConsigneDto {
     this.responsable = object.responsable;
     this.status = object.status;
     this.description = object.description;
-    this.projet = new ProjetDto(object.projet);
-    this.zone = new ZoneDto(object.zone);
     this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
@@ -29,10 +27,6 @@ export class ConsigneDto {
   readonly rapporteur: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly projet: ProjetDto;
-  @ApiProperty()
-  readonly zone: ZoneDto;
   @ApiProperty()
   readonly poste: PosteDto;
 }

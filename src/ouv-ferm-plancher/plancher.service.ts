@@ -22,8 +22,6 @@ export class PlancherService {
   async find(query: {} = {}): Promise<Plancher[]> {
     return await this.plancherModel
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate("poste")
       .exec();
   }
@@ -36,8 +34,6 @@ export class PlancherService {
     const doc = new this.plancherModel(plancher);
     let document = await this.plancherModel.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .populate("poste")
       .execPopulate();
     return document;

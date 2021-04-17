@@ -19,8 +19,6 @@ export class ChantierDto {
     this.chantier = object.chantier;
     this.contact = object.contact;
     this.numero = object.numero;
-    this.projet = new ProjetDto(object.projet);
-    this.zone = new ZoneDto(object.zone);
     this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
@@ -45,10 +43,6 @@ export class ChantierDto {
   readonly contact: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly projet: ProjetDto;
-  @ApiProperty()
-  readonly zone: ZoneDto;
   @ApiProperty()
   readonly ouverture: boolean;
   @ApiProperty()

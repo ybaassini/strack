@@ -15,8 +15,6 @@ export class Di82Dto {
     this.conforme = object.conforme;
     this.commentaire = object.commentaire;
     this.numero = object.numero;
-    this.projet = new ProjetDto(object.projet);
-    this.zone = new ZoneDto(object.zone);
     this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
@@ -35,10 +33,6 @@ export class Di82Dto {
   readonly rapporteur: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly projet: ProjetDto;
-  @ApiProperty()
-  readonly zone: ZoneDto;
   @ApiProperty()
   readonly poste: PosteDto;
 }

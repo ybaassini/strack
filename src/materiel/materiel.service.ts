@@ -23,8 +23,6 @@ export class MaterielService {
   async find(query: {} = {}): Promise<Materiel[]> {
     return await this.materielModel
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate("poste")
       .exec();
   }
@@ -37,8 +35,6 @@ export class MaterielService {
     const doc = new this.materielModel(materiel);
     let document = await this.materielModel.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .populate("poste")
       .execPopulate();
     return document;

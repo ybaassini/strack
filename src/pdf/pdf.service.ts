@@ -22,8 +22,6 @@ export class PdfService {
   async find(query: {} = {}): Promise<Pdf[]> {
     return await this.pdfModel
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate("poste")
       .exec();
   }
@@ -36,8 +34,6 @@ export class PdfService {
     const doc = new this.pdfModel(pdf);
     let document = await this.pdfModel.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .populate("poste")
       .execPopulate();
     return document;

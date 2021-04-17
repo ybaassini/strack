@@ -22,8 +22,6 @@ export class Di82Service {
   async find(query: {} = {}): Promise<Di82[]> {
     return await this.di82Model
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate("poste")
       .exec();
   }
@@ -36,8 +34,6 @@ export class Di82Service {
     const doc = new this.di82Model(di82);
     let document = await this.di82Model.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .populate("poste")
       .execPopulate();
     return document;

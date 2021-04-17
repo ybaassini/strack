@@ -9,6 +9,7 @@ import { ConstatDto } from "./dto/constat.dto";
 import { PosteDto } from "./dto/poste.dto";
 import { isArray } from "util";
 import { isTypedArray } from "lodash";
+import { SURVEILLANCE_GLOBALE } from "common/data/balise.data";
 
 const saltRounds = 10;
 
@@ -25,8 +26,6 @@ export class PosteService {
   async find(query: {} = {}): Promise<Poste[]> {
     return await this.posteModel
       .find(query)
-      .populate("zone")
-      .populate("projet")
       .populate({ 
         path: 'constats',
         populate: {
@@ -45,8 +44,6 @@ export class PosteService {
     const doc = new this.posteModel(poste);
     let document = await this.posteModel.create(doc);
     document = await document
-      .populate("projet")
-      .populate("zone")
       .execPopulate();
     return document;
   }
@@ -58,30 +55,6 @@ export class PosteService {
     );
 
     return newPosteDocument;
-  }
-
-  async createConstat(posteId: number, constat): Promise<Poste> {
-    return await this.posteModel
-      .findOneAndUpdate(
-        { _id: posteId },
-        { $push: { constats: constat } },
-        { new: true }
-      )
-      .exec();
-  }
-
-  async updateConstat(posteId: number, constat): Promise<Poste> {
-    await this.posteModel.updateOne(
-      { _id: posteId },
-      { $pull: { constats: { _id: constat.id } } }
-    );
-    return await this.posteModel
-      .findOneAndUpdate(
-        { _id: posteId },
-        { $push: { constats: constat } },
-        { new: true }
-      )
-      .exec();
   }
 
   protected deserialize(document: Poste[]): PosteDto[];
