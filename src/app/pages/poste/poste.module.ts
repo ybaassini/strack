@@ -15,6 +15,7 @@ import {
   NB_TIME_PICKER_CONFIG,
   NbToggleModule,
 } from '@nebular/theme';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
 
@@ -37,7 +38,8 @@ import { PosteRoutingModule, routedComponents } from './poste-routing.module';
     ThemeModule,
     FormsModule,
     ReactiveFormsModule,
-    PosteRoutingModule
+    PosteRoutingModule,
+    Ng2SmartTableModule,
   ],
   declarations: [
     ...routedComponents,

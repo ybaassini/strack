@@ -1,0 +1,9 @@
+.api-msg {
+  color: green;
+  font-size: 12px;
+  text-align: center;
+
+  &.error {
+    color: red;
+  }
+}

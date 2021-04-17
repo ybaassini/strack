@@ -23,6 +23,8 @@ import {
 import localeFr from "@angular/common/locales/fr";
 import { registerLocaleData } from "@angular/common";
 import { AuthInterceptor } from "./@core/interceptors/auth.interceptor";
+import { ApiHandlerModule } from "./lib/api-handler";
+import { LoaderInterceptor } from "./@core/interceptors/loader.interceptor";
 registerLocaleData(localeFr, "fr");
 
 @NgModule({
@@ -43,12 +45,18 @@ registerLocaleData(localeFr, "fr");
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    ApiHandlerModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "fr-FR" },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
       multi: true,
     },
   ],

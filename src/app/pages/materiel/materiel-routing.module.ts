@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { MaterielsResolver } from "app/@core/resolver/materiel/materiels.resolver";
+import { MaterielsByPosteResolver } from "app/@core/resolver/materiel/materiels-by-poste.resolver";
+import { MaterielsByZoneResolver } from "app/@core/resolver/materiel/materiels-by-zone.resolver";
 
 import { MaterielComponent } from "./materiel.component";
 
@@ -9,7 +10,8 @@ const routes: Routes = [
     path: "",
     component: MaterielComponent,
     resolve: {
-      materiels: MaterielsResolver,
+      currentMateriels: MaterielsByPosteResolver,
+      historyMateriels: MaterielsByZoneResolver,
     }
   },
 ];

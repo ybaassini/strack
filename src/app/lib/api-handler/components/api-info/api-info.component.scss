@@ -1,0 +1,73 @@
+
+@keyframes disable-info {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+    visibility: hidden;
+  }
+}
+
+.api-info {
+  position: fixed;
+  height: 50px;
+  top: -50px;
+  visibility: hidden;
+  width: 100%;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000000;
+  transition: transform .6s ease;
+
+  &.active {
+    visibility: visible;
+    transform: translateY(100%);
+    animation: disable-info .6s ease 5s forwards;
+
+    &.noTimeout {
+      animation: none;
+    }
+  }
+
+  &.close {
+    animation: disable-info .6s ease 0s forwards;
+  }
+
+  &.danger {
+    background-color: #e84242;
+  }
+
+  &__close {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    right: 20px;
+    opacity: .3;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+    &:before, &:after {
+      position: absolute;
+      left: 15px;
+      content: ' ';
+      height: 20px;
+      width: 2px;
+      background-color: #333;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}

@@ -99,6 +99,11 @@ export class MenuComponent {
       icon: 'edit-outline',
       link: '/pages/dashboard',
     },
+    {
+      title: 'Indicateur',
+      icon: 'edit-outline',
+      link: '/pages/indicateur',
+    },
   ];
 
   constructor(

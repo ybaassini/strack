@@ -1,0 +1,4 @@
+<section class="api-info" [class.active]="isActive" [class.danger]="isDanger" [class.close]="isClose" [class.noTimeout]="(apiHandlerService.currentInfo | async )?.noTimeout">
+  {{ (apiHandlerService.currentInfo | async )?.message }}
+  <span class="api-info__close" (click)="close()"></span>
+</section>

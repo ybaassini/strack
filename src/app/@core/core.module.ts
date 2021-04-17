@@ -18,6 +18,7 @@ import { LocalStorageService } from './services/local-storage.service';
 import { ConstatManagementService } from './services/constat-management.service';
 import { BASE_PATH } from './api';
 import { environment } from 'environments/environment';
+import { LoaderService } from './services/loader.service';
 
 
 const socialLinks = [
@@ -87,6 +88,7 @@ export const NB_CORE_PROVIDERS = [
   StateService,
   AuthInterceptor,
   LocalStorageService,
+  LoaderService,
   ConstatManagementService,
 ];
 

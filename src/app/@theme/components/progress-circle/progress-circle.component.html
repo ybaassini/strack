@@ -1,0 +1,32 @@
+<div class="progress-circle" [style.width]="size + 'px'" [style.height]="size + 'px'">
+  <svg [attr.width]="size" [attr.height]="size" [attr.viewBox]="viewBox">
+    <circle
+      class="progress-circle__background"
+      [attr.cx]="position"
+      [attr.cy]="position"
+      [attr.stroke-width]="strokeWidth"
+      [attr.r]="radius"/>
+
+    <circle
+      class="progress-circle__meter"
+      [attr.cx]="position"
+      [attr.cy]="position"
+      [attr.stroke-width]="strokeWidth"
+      [attr.r]="radius"
+      [attr.stroke-dasharray]="dashArray"
+      [attr.stroke-dashoffset]="dashOffset"
+      fill="none" />
+  </svg>
+  <!-- NEED ICON -->
+  <img
+    src="assets/svg/finance-application/check_icon.svg"
+    alt="progress icon complete"
+    *ngIf="percent === 100; else notFull"
+    class="progress-circle__icon">
+  <ng-template #notFull>
+    <img
+      class="progress-circle__icon"
+      src="assets/svg/finance-application/sablier_icon.svg"
+      alt="progress icon hourglass">
+  </ng-template>
+</div>

@@ -94,10 +94,10 @@
           id="input-label"
           [(value)]="poste.label"
         >
-          <nb-radio [value]="'Matin'"> Matin </nb-radio>
-          <nb-radio [value]="'Journée'"> Journée </nb-radio>
-          <nb-radio [value]="'Après-midi'"> Après-midi </nb-radio>
-          <nb-radio [value]="'Nuit'"> Nuit </nb-radio>
+          <nb-radio [value]="'morning'"> Matin </nb-radio>
+          <nb-radio [value]="'day'"> Journée </nb-radio>
+          <nb-radio [value]="'afternoon'"> Après-midi </nb-radio>
+          <nb-radio [value]="'night'"> Nuit </nb-radio>
         </nb-radio-group>
         <ng-container *ngIf="label.invalid && label.touched">
           <p class="error-message" *ngIf="label.errors?.required">

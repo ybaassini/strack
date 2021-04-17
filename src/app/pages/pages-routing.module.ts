@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PostesResolver } from 'app/@core/resolver';
 import { ConsignesResolver } from 'app/@core/resolver/consigne/consignes.resolver';
-import { MaterielsResolver } from 'app/@core/resolver/materiel/materiels.resolver';
+import { MaterielsByPosteResolver } from 'app/@core/resolver/materiel/materiels-by-poste.resolver';
 
 const routes: Routes = [{
   path: '',
@@ -15,11 +15,6 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
-      resolve: {
-        postes: PostesResolver,
-        consignes: ConsignesResolver,
-        materiels: MaterielsResolver,
-      }
     },
     {
       path: 'menu',
