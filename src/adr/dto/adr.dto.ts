@@ -16,7 +16,6 @@ export class AdrDto {
     this.commentaire = object.commentaire;
     this.local = object.local;
     this.intitule = object.intitule;
-    this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
   readonly id: number;
@@ -38,6 +37,5 @@ export class AdrDto {
   readonly intitule: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly poste: PosteDto;
+
 }

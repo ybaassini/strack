@@ -13,7 +13,6 @@ export class ConsigneDto {
     this.responsable = object.responsable;
     this.status = object.status;
     this.description = object.description;
-    this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
   readonly id: number;
@@ -27,6 +26,5 @@ export class ConsigneDto {
   readonly rapporteur: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly poste: PosteDto;
+
 }

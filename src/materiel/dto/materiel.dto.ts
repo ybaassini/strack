@@ -19,7 +19,6 @@ export class MaterielDto {
     this.numero = object.numero;
     this.point = object.point;
     this.actions = object.actions;
-    this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
   readonly id: number;
@@ -43,6 +42,5 @@ export class MaterielDto {
   readonly numero: string;
   @ApiProperty()
   readonly point: string;
-  @ApiProperty()
-  readonly poste: PosteDto;
+
 }

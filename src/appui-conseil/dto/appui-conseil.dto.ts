@@ -15,7 +15,6 @@ export class AppuiConseilDto {
     this.commentaire = object.commentaire;
     this.local = object.local;
     this.chantier = object.chantier;
-    this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
   readonly id: number;
@@ -33,6 +32,5 @@ export class AppuiConseilDto {
   readonly local: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly poste: PosteDto;
+
 }

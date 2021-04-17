@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0478095c-b75c-464a-9eeb-fde16fab5be0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../src/adr/adr.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/adr/adr.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/adr/adr.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/adr/dto/adr.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/adr/dto/adr.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/adr/schemas/adr.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/adr/schemas/adr.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/appui-conseil/appui-conseil.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/appui-conseil/appui-conseil.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/appui-conseil/appui-conseil.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/appui-conseil/dto/appui-conseil.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/appui-conseil/dto/appui-conseil.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/appui-conseil/schemas/appui-conseil.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/appui-conseil/schemas/appui-conseil.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/balise/balise.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/balise/balise.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/balise/balise.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/balise/dto/balise.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/balise/dto/balise.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/balise/schemas/balise.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/balise/schemas/balise.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/consigne/consigne.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/consigne/consigne.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/consigne/consigne.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/consigne/dto/consigne.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/consigne/dto/consigne.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/consigne/schemas/consigne.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/consigne/schemas/consigne.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/di82/di82.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/di82/di82.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/di82/di82.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/di82/dto/di82.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/di82/dto/di82.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/di82/schemas/di82.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/di82/schemas/di82.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/krt/dto/krt.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/krt/dto/krt.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/krt/krt.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/krt/krt.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/krt/krt.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/krt/schemas/krt.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/krt/schemas/krt.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/materiel/dto/materiel.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/materiel/dto/materiel.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/materiel/materiel.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/materiel/materiel.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/materiel/materiel.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/materiel/schemas/materiel.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/materiel/schemas/materiel.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-chantier/chantier.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-chantier/chantier.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-chantier/chantier.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-chantier/dto/chantier.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/ouv-ferm-chantier/dto/chantier.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-chantier/schemas/chantier.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/ouv-ferm-chantier/schemas/chantier.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-plancher/dto/plancher.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/ouv-ferm-plancher/dto/plancher.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-plancher/plancher.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-plancher/plancher.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-plancher/plancher.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/ouv-ferm-plancher/schemas/plancher.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/ouv-ferm-plancher/schemas/plancher.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pdf/pdf.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pdf/pdf.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pdf/pdf.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pdf/schemas/pdf.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pdf/schemas/pdf.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/poste/poste.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/poste/poste.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/users/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/users/users.module.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1q8iw8wwoco4AJO3NlAMvptCicK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="42ee262802d76d67" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-04-07T23:28:39.454Z" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1617795069823" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="android.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="true" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0478095c-b75c-464a-9eeb-fde16fab5be0" name="Default Changelist" comment="" />
+      <created>1616467853631</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616467853631</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="196" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617972323743">
+      <screen x="0" y="23" width="1440" height="810" />
+    </state>
+    <state x="196" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.810@0.23.1440.810" timestamp="1617972323743" />
+    <state x="120" y="143" width="1200" height="570" key="AVDManager" timestamp="1617835519971">
+      <screen x="0" y="23" width="1440" height="810" />
+    </state>
+    <state x="120" y="143" width="1200" height="570" key="AVDManager/0.23.1440.810@0.23.1440.810" timestamp="1617835519971" />
+    <state x="308" y="190" key="AndroidCreateResourceFileDialog" timestamp="1616470832590">
+      <screen x="0" y="23" width="1440" height="810" />
+    </state>
+    <state x="308" y="190" key="AndroidCreateResourceFileDialog/0.23.1440.810@0.23.1440.810" timestamp="1616470832590" />
+    <state width="1356" height="195" key="GridCell.Tab.0.bottom" timestamp="1617836489723">
+      <screen x="0" y="23" width="1440" height="810" />
+    </state>
+    <state width="1356" height="195" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1617836489723" />
+    <state width="1356" height="195" key="GridCell.Tab.0.center" timestamp="1617836489723">
+      <screen x="0" y="23" width="1440" height="810" />
+    </state>
+    <state width="1356" height="195" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1617836489723" />
+    <state width="1356" height="195" key="GridCell.Tab.0.left" timestamp="1617836489722">
+      <screen x="0" y="23" width="1440" height="810" />
+    </state>
+    <state width="1356" height="195" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1617836489722" />
+    <state width="1356" height="195" key="GridCell.Tab.0.right" timestamp="1617836489723">
+      <screen x="0" y="23" width="1440" height="810" />
+    </state>
+    <state width="1356" height="195" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1617836489723" />
+    <state x="326" y="183" width="1114" height="490" key="find.popup" timestamp="1617795297311">
+      <screen x="0" y="23" width="1440" height="810" />
+    </state>
+    <state x="326" y="183" width="1114" height="490" key="find.popup/0.23.1440.810@0.23.1440.810" timestamp="1617795297311" />
+  </component>
+</project>

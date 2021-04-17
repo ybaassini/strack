@@ -9,15 +9,6 @@ import { PosteModule } from "./poste/poste.module";
 import { ProjetModule } from "./projet/projet.module";
 import { ZoneModule } from "./zone/zone.module";
 import { RiskModule } from "./risk/risk.module";
-import { ConsigneModule } from "consigne/consigne.module";
-import { AppuiConseilModule } from "appui-conseil/appui-conseil.module";
-import { Di82Module } from "di82/di82.module";
-import { MaterielModule } from "materiel/materiel.module";
-import { ChantierModule } from "ouv-ferm-chantier/chantier.module";
-import { PlancherModule } from "ouv-ferm-plancher/plancher.module";
-import { PdfModule } from "pdf/pdf.module";
-import { AdrModule } from "adr/adr.module";
-import { BaliseModule } from "balise/balise.module";
 
 const userString =
   config.db.user && config.db.pass

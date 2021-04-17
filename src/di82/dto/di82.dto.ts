@@ -15,7 +15,6 @@ export class Di82Dto {
     this.conforme = object.conforme;
     this.commentaire = object.commentaire;
     this.numero = object.numero;
-    this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
   readonly id: number;
@@ -33,6 +32,5 @@ export class Di82Dto {
   readonly rapporteur: string;
   @ApiProperty()
   readonly responsable: string;
-  @ApiProperty()
-  readonly poste: PosteDto;
+
 }

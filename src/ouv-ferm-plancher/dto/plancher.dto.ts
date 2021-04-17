@@ -16,7 +16,6 @@ export class PlancherDto {
     this.conforme = object.conforme;
     this.commentaire = object.commentaire;
     this.numero = object.numero;
-    this.poste = new PosteDto(object.poste);
   }
   @ApiProperty()
   readonly id: number;
@@ -36,6 +35,5 @@ export class PlancherDto {
   readonly responsable: string;
   @ApiProperty()
   readonly ouverture: boolean;
-  @ApiProperty()
-  readonly poste: PosteDto;
+
 }

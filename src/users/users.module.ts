@@ -4,8 +4,6 @@ import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { UserSchema } from './schemas/user.schema';
 import { LoggerMiddleware } from '../common/middlewares/logger.middleware';
-import { BaliseService } from 'balise/balise.service';
-import { MaterielService } from 'materiel/materiel.service';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'User', schema: UserSchema }])],

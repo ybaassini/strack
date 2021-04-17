@@ -10,12 +10,10 @@ export class KrtDto {
     this.conforme = object.conforme;
     this.affichageINR = object.affichageINR;
     this.inhibition = object.inhibition;
-    this.poste = new PosteDto(object.poste);
   };
   @ApiProperty()
   readonly id: number;
-  @ApiProperty()
-  readonly poste: PosteDto;
+
   @ApiProperty()
   readonly local: string;
   @ApiProperty()

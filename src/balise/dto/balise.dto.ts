@@ -10,12 +10,10 @@ export class BaliseDto {
     this.valeurMax = object.valeurMax;
     this.releve1 = object.releve1;
     this.releve2 = object.releve2;
-    this.poste = new PosteDto(object.poste);
   };
   @ApiProperty()
   readonly id: number;
-  @ApiProperty()
-  readonly poste: PosteDto;
+
   @ApiProperty()
   readonly label: string;
   @ApiProperty()
